@@ -1,0 +1,158 @@
+/*
+To change this license header, choose License Headers in Project Properties.
+To change this template file, choose Tools | Templates
+and open the template in the editor.
+*/
+/* 
+    Created on : Sep 7, 2015, 4:09:53 PM
+    Author     : Chinmaya
+*/
+.action_links a{padding-right:3px;}
+.animated {-webkit-animation-duration: 1s;animation-duration: 1s;-webkit-animation-fill-mode: both;animation-fill-mode: both;}
+@-webkit-keyframes fadeInDown {
+    0% {opacity: 0;-webkit-transform: translateY(-20px);transform: translateY(-20px);    }
+    100% {opacity: 1;-webkit-transform: translateY(0);transform: translateY(0);    }
+}
+@keyframes fadeInDown {
+    0% {opacity: 0;-webkit-transform: translateY(-20px);-ms-transform: translateY(-20px);transform: translateY(-20px);    }
+    100% {opacity: 1;-webkit-transform: translateY(0);-ms-transform: translateY(0);transform: translateY(0);    }
+}
+.fadeInDown {-webkit-animation-name: fadeInDown;animation-name: fadeInDown;}
+@-webkit-keyframes fadeOutUp {
+    0% {opacity: 1;-webkit-transform: translateY(0);transform: translateY(0);    }
+    100% {opacity: 0;-webkit-transform: translateY(-20px);transform: translateY(-20px);    }
+}
+@keyframes fadeOutUp {
+    0% {opacity: 1;-webkit-transform: translateY(0);-ms-transform: translateY(0);transform: translateY(0);    }
+    100% {opacity: 0;-webkit-transform: translateY(-20px);-ms-transform: translateY(-20px);transform: translateY(-20px);    }
+}
+.fadeOutUp {-webkit-animation-name: fadeOutUp;animation-name: fadeOutUp;}
+@-webkit-keyframes fadeOut {
+  from {opacity: 1;  }
+  to {opacity: 0;  }
+}
+
+@keyframes fadeOut {
+  from {opacity: 1;  }
+  to {opacity: 0;  }
+}
+
+.fadeOut {-webkit-animation-name: fadeOut;animation-name: fadeOut;}
+@-webkit-keyframes fadeIn {
+  from {opacity: 0;  }
+  to {opacity: 1;  }
+}
+
+@keyframes fadeIn {
+  from {opacity: 0;  }
+  to {opacity: 1;  }
+}
+
+.fadeIn {-webkit-animation-name: fadeIn;animation-name: fadeIn;}
+.select2-container {width: 100% !important;padding: 0;}
+label.error{font-weight: normal;color: red;}
+.error-message{color: red !important;}
+span.error, .error{font-weight: normal;color: red;}
+.sidebar-menu li.active>a>.fa-angle-right {-webkit-transform: rotate(-270deg);-ms-transform: rotate(-270deg);-o-transform: rotate(-270deg);transform: rotate(-270deg) important;top: 30px;right: 19px;}
+<!-- For Icheck blue Plugin -->
+.icheckbox_square-blue {display: inline-block;vertical-align: middle;margin: 0;padding: 0;width: 22px;height: 22px;background: url(../img/blue.png) no-repeat;border: none;cursor: pointer;}
+.icheckbox_square-blue {background: url(../img/blue.png) no-repeat;background-position: 0 0;display: inline-block;vertical-align: middle;margin: 0;padding: 0;width: 22px;height: 22px;border: none;cursor: pointer;}
+.icheckbox_square-blue.hover {background-position: -24px 0;}
+.icheckbox_square-blue.checked {background-position: -48px 0;}
+.icheckbox_square-blue.disabled {background-position: -72px 0;cursor: default;}
+.icheckbox_square-blue.checked.disabled {background-position: -96px 0;}
+.iradio_square-blue {background-position: -120px 0;}
+.iradio_square-blue.hover {background-position: -144px 0;}
+.iradio_square-blue.checked {background-position: -168px 0;}
+.iradio_square-blue.disabled {background-position: -192px 0;cursor: default;}
+.iradio_square-blue.checked.disabled {background-position: -216px 0;}
+
+/* Retina support */
+@media only screen and (-webkit-min-device-pixel-ratio: 1.5),
+only screen and (-moz-min-device-pixel-ratio: 1.5),
+only screen and (-o-min-device-pixel-ratio: 3/2),
+only screen and (min-device-pixel-ratio: 1.5) {
+    .icheckbox_square-blue, .iradio_square-blue {background-image: url("blue@2x.png");-webkit-background-size: 240px 24px;background-size: 240px 24px;}
+}
+.admin_alerts{z-index:999;position: absolute;left:30%;top: 10%;width: 50%;}
+.fr{float:right;}
+.fl{float:left;}
+.highlight{background: #F39C12; color: #fff; padding: 1px;}
+.anchor{cursor: pointer;}
+div.tooltip-inner {max-width: 700px;}
+.glyphicon-refresh-animate {-animation: spin .7s infinite linear;-webkit-animation: spin2 .7s infinite linear;}
+
+@-webkit-keyframes spin2 {
+    from { -webkit-transform: rotate(0deg);}
+    to { -webkit-transform: rotate(360deg);}
+}
+
+@keyframes spin {
+    from { transform: scale(1) rotate(0deg);}
+    to { transform: scale(1) rotate(360deg);}
+}
+.bg-bookingtab{background-color: #617992 !important;color:#fff !important;}
+.bg-feedbacks{background-color: #ABC147 !important;color:#fff !important;}
+.bg-revratings{background-color: #97708A !important;color:#fff !important;}
+.bg-misc{background-color: #d9534f !important;color:#fff !important;}
+.bootstrap-tagsinput .label-info{background-color: #3c8dbc !important;border-color: #367fa9 !important;display: inline-block; margin-top:4px;}
+.nav-tabs-custom>.nav-tabs{background: #ddd; background: rgba(0,0,0,0.1);}
+.select2-container--default .select2-selection--multiple .select2-selection__choice{background: #3c8dbc !important; border-color: #367fa9 !important; color:#fff; font-size: 14px; font-weight: 700;}
+.select2-container--default.select2-container--open.select2-container--above .select2-selection--single, .select2-container--default.select2-container--open.select2-container--above .select2-selection--multiple,
+.select2-container--default.select2-container--focus .select2-selection--multiple
+{border-color: #ccc;}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove{color: #fff !important;float: right;font-size: 16px;display: inline-block;margin-left: 5px;}
+.select2-container--default .select2-selection--multiple .select2-selection__choice__remove:hover{color: #fff !important;}
+.ellipsis-view{text-overflow:ellipsis;white-space: nowrap;overflow: hidden;}
+i.rightbrdr{ border-right: 1px solid #333; margin-right: 2px; padding-right: 2px;}
+.none{display:none;}
+#map-canvas img, #map img{max-width: none;}
+
+.phoneblock{background: #fff; border: 1px solid #ccc; width: 100%; position: relative;}
+.phoneblock .phlbl{display: block;padding: 7px 0 0 12px; font-size: 14px; color: #555; }
+.phoneblock input.form-control{border: 0px none #ccc; width:80%; padding-left: 6px;}
+.cb{clear:both;}
+.red-ico{color: #ff0000;}
+.green-ico{color: green;}
+.text-center{text-align: center;}
+#city_listing_processing{padding-top: 2px;}
+#widgets_refresh{height: 23px;min-width: 23px;padding: 3px; width: 23px; margin: 0px; border-radius: 50%;}
+#widgets_refresh i{font-size: 16px;}
+.table-striped>tbody>tr:nth-of-type(odd).restore, .restore{background: #ddd;}
+.bg-blue{background-color: #C6AD56;}
+.bg-gnut{background-color: #C6AD56;color: white;}
+.bg-crimson{background-color: #A8ABA7;color: white;}
+.bg-contact-info{background-color: #F39B5E ;color:white;}
+.bg-subs{background-color: #39cccc ;color:white;}
+.bg-groupbookingtab{background-color: #01905a ;color:white;}
+.bg-favs{background-color: #c3232d ;color:white;}
+.gallery .mailbox-attachments li img {box-shadow: 0 1px 7px rgba(0,0,0,0.6);-o-transform: scale(1,1); -ms-transform: scale(1,1); -moz-transform: scale(1,1); -webkit-transform: scale(1,1); transform: scale(1,1); -o-transition: all 0.2s ease-in-out; -ms-transition: all 0.2s ease-in-out; -moz-transition: all 0.2s ease-in-out; -webkit-transition: all 0.2s ease-in-out; transition: all 0.2s ease-in-out;} 
+.gallery .mailbox-attachments li:hover img {position: relative; z-index: 999; -o-transform: scale(1.03,1.03); -ms-transform: scale(1.03,1.03); -moz-transform: scale(1.03,1.03); -webkit-transform: scale(1.03,1.03); transform: scale(1.03,1.03);}
+.admin_video_limit{text-align:center;height:auto;padding:120px;}
+#call_requests_processing{padding-top: 2px;}
+#contacts_ad_processing{padding-top: 2px;}
+#bookings_processing{padding-top: 2px;}
+#admin_feedbacks_processing{padding-top: 2px;}
+#example2_processing{padding-top: 2px;}
+#facility_table_processing{padding-top: 2px;}
+#businessList_processing{padding-top: 2px;}
+.grey-box{width:100%;background:#EFEEEE; padding:30px; border:1px solid #aaa; font-size:16px; color:#333;margin: 30px 0;background: -webkit-linear-gradient(left,  #eee, #fff, #eee);background: -o-linear-gradient(left,  #eee, #fff, #eee);background: -moz-linear-gradient(left,  #eee, #fff, #eee);background: linear-gradient(to right, #eee, #fff, #eee);}
+.each-row{padding:15px 0; border-bottom: 1px solid #ccc;margin-bottom:20px;}
+.check-btn{width:50px;}
+.check-btn input[type='radio'] {transform: scale(1.5);-webkit-transform: scale(1.5);-moz-transform: scale(1.5);}
+.each-row .month_name{width:25%;}
+.each-row .amount{width:25%;}
+.each-row .sale-on{width:32%;}
+.amount{color:#F46E01;}
+.p-amount{text-decoration:line-through; font-size:16px;}
+.sale-on{color:#F46E01;font-size:16px;}
+.inactiveLinkadmin{cursor: not-allowed;}
+.inactiveLinkadmin:hover{box-shadow: 0px 1px 2px #666;background: #9CBA7F;color: #fff;}
+.inactiveLinkblue{cursor: not-allowed;}
+.inactiveLinkblue:hover{box-shadow: 0px 1px 2px #666;background: #C6E2FF;color: black;}
+.question-bank #drop_zone {border-width: 2px;margin-bottom: 20px;color: #ccc;border-style: dashed;border-color: #ccc;line-height: 200px;text-align: center;height: 200px;font-size: 30px;}
+.question-bank #drop_zone.in {width: 600px;height: 200px;line-height: 200px;font-size: larger;}
+.question-bank #drop_zone.hover {color: #222;border-color: #222;}
+.question-bank #drop_zone.fade {-webkit-transition: all 0.3s ease-out;-moz-transition: all 0.3s ease-out;-ms-transition: all 0.3s ease-out;-o-transition: all 0.3s ease-out;transition: all 0.3s ease-out;opacity: 1;}
+.box-tools .btn{display:inline-block;margin-right:5px;}
+.ico-export-btn{display:inline-block;width:100px;margin-top:0;padding:5px 0;}

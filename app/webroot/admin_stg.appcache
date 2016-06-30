@@ -1,0 +1,41 @@
+CACHE MANIFEST
+# 2015-09-11 v1.0.0
+/staging/css/bootstrap.min.css
+/staging/css/font-awesome.min.css
+/staging/css/ionicons.min.css
+/staging/css/blue.css
+/staging/css/AdminLTE.min.css
+/staging/css/datepicker3.css
+#/staging/css/daterangepicker-bs3.css
+/staging/js/jquery-1.9.1.min.js
+/staging/js/jquery-ui.min.js
+/staging/js/jquery.validate.min.js
+/staging/js/app.min.js
+/staging/js/bootstrap.min.js
+#/staging/js/bootstrap-datepicker.js
+/staging/js/dataTables.bootstrap.min.js
+#/staging/js/daterangepicker.js
+/staging/js/fastclick.min.js
+/staging/js/dashboard.js
+/staging/js/jquery.dataTables.min.js
+#/staging/js/jquery.sparkline.min.js
+#/staging/js/jquery-jvectormap-1.2.2.min.js
+#/staging/js/jquery-jvectormap-world-mill-en.js
+#/staging/js/jquery.knob.js
+/staging/js/jquery.slimscroll.min.js
+#/staging/js/raphael-min.js
+#/staging/js/morris.min.js
+/staging/js/moment.min.js
+/staging/js/jquery.highlight.js
+/staging/fonts/fontawesome-webfont.woff2?v=4.4.0
+/staging/fonts/ionicons.ttf?v=2.0.1 
+/staging/fonts/fontawesome-webfont.woff?v=4.4.0
+/staging/fonts/ionicons.woff?v=2.0.1
+/staging/fonts/fontawesome-webfont.ttf?v=4.4.0
+
+NETWORK:
+
+*
+
+FALLBACK:
+#/html/ /staging/offline

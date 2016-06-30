@@ -1,0 +1,864 @@
+ALTER TABLE `feedback` ADD `is_complete` TINYINT(2) NULL DEFAULT '0' ;
+ALTER TABLE `contacts` ADD `is_complete` TINYINT(2) NULL DEFAULT '0' ;
+ALTER TABLE `inquiries` ADD `is_complete` TINYINT(2) NULL DEFAULT '0' ;
+ALTER TABLE `business_bookings` ADD `is_complete` TINYINT(2) NULL DEFAULT '0' ;
+
+################
+
+--
+-- Table structure for table `business_timings`
+--
+
+CREATE TABLE IF NOT EXISTS `business_timings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `business_id` int(12) NOT NULL,
+  `day` tinyint(2) NOT NULL,
+  `start_time` time NOT NULL,
+  `close_time` time NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+--
+-- Table structure for table `business_galleries`
+
+
+--
+
+CREATE TABLE IF NOT EXISTS `business_galleries` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `buisness_id` int(11) NOT NULL,
+  `media` varchar(255) NOT NULL,
+  `sequence` tinyint(3) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `business_ratings`
+--
+
+CREATE TABLE IF NOT EXISTS `business_ratings` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `buisness_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 ;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `categories`
+--
+
+CREATE TABLE IF NOT EXISTS `categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) NOT NULL,
+  `name` varchar(155) NOT NULL,
+  `status` tinyint(2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `cities`
+--
+
+CREATE TABLE IF NOT EXISTS `cities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(155) NOT NULL,
+  `status` tinyint(2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `localities`
+--
+
+CREATE TABLE IF NOT EXISTS `localities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `city_id` int(11) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `status` tinyint(2) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- --------------------------------------------------------
+
+--
+-- Table structure for table `users`
+--
+
+CREATE TABLE IF NOT EXISTS `users` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `username` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `password` varchar(255) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `verification_code` varchar(10) NOT NULL,
+  `type` tinyint(2) NOT NULL COMMENT '1 - Admin , 2 - User',
+  `city` varchar(50) NOT NULL,
+  `pincode` int(11) NOT NULL,
+  `photo` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `last_login` datetime NOT NULL,
+  `status` tinyint(1) DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8;
+
+-- ------------------------------------------------------------------
+-- Buisness Table
+-- ============================
+CREATE TABLE IF NOT EXISTS `buisnesses` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `subcategory_id` int(11) NOT NULL,
+  `min_age_group` tinyint(3) NOT NULL,
+  `max_age_group` tinyint(3) NOT NULL,
+  `facilities` mediumtext NOT NULL,
+  `about_us` mediumtext NOT NULL,
+  `logo` varchar(255) NOT NULL,
+  `city_id` int(11) NOT NULL,
+  `locality_id` int(11) NOT NULL,
+  `address` varchar(255) NOT NULL,
+  `landmark` varchar(255) NOT NULL,
+  `pincode` int(6) NOT NULL,
+  `contact_person` varchar(255) NOT NULL,
+  `phone` varchar(15) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `website` varchar(255) NOT NULL,
+  `facebook` varchar(255) NOT NULL,
+  `twitter` varchar(255) NOT NULL,
+  `gender` varchar(10) NOT NULL,
+  `price` float(10,2) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+
+-- Category table - 8/9/2015 - CHN
+ALTER TABLE  `categories` ADD  `category_image` VARCHAR( 255 ) NOT NULL AFTER  `status` ,
+ADD  `created` DATETIME NOT NULL AFTER  `category_image`;
+ALTER TABLE  `categories` ADD  `description` TEXT NOT NULL AFTER  `category_image`;
+
+
+-- 2015-09-09 - GKM
+ALTER TABLE `businesses` ADD `latitude` VARCHAR(50) NULL , ADD `longitude` VARCHAR(50) NULL ;
+ALTER TABLE `businesses` ADD `gplus` VARCHAR(255) NULL AFTER `twitter`, ADD `youtube` VARCHAR(255) NULL AFTER `gplus`;
+ALTER TABLE `users` ADD `latitude` VARCHAR(50) NULL , ADD `longitude` VARCHAR(50) NULL ;
+ALTER TABLE `businesses` CHANGE `gender` `gender` ENUM('male','female','both') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'both';
+
+Users table - 9/9/2015 - CHN
+ALTER TABLE  `users` CHANGE  `type`  `type` TINYINT( 2 ) NOT NULL COMMENT  '1 - Admin , 2 - User,3 - Business User';
+ALTER TABLE  `users` CHANGE  `verification_code`  `verification_code` VARCHAR( 50 ) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+
+
+--
+-- Table structure for table `facilities` 2015-09-09 - CHN
+--
+
+CREATE TABLE IF NOT EXISTS `facilities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `image` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8;
+
+-- 10-09-2015 GKM
+ALTER TABLE `users` CHANGE `verification_code` `verification_code` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+ALTER TABLE `categories` ADD `sequence` TINYINT(2) NOT NULL DEFAULT '0' ;
+ALTER TABLE `businesses` ADD `status` TINYINT(2) NOT NULL DEFAULT '2' COMMENT '1 - Active, 2 - Inactive' ;
+ALTER TABLE `business_galleries` CHANGE `sequence` `sequence` TINYINT(3) NOT NULL DEFAULT '0';
+
+-- 11-09-2015
+--
+-- Table structure for table `icons`
+--
+
+CREATE TABLE IF NOT EXISTS `icons` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(50) NOT NULL,
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- 12-09-2015
+
+--
+-- Table structure for table `pages`
+--
+
+CREATE TABLE IF NOT EXISTS `static_pages` (
+  `id` tinyint(2) NOT NULL AUTO_INCREMENT,
+  `code` varchar(50) NOT NULL,
+  `url` varchar(100) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  `content` text,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- 15-9-2015
+
+--
+-- Table structure for table `business_facilities`
+--
+
+CREATE TABLE IF NOT EXISTS `business_facilities` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `business_id` int(11) NOT NULL,
+  `facility_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+-- 15-9-2015
+ALTER TABLE `business_ratings` ADD `rating` TINYINT(2) NOT NULL DEFAULT '0' , ADD `comment` TEXT NULL ;
+ALTER TABLE `business_ratings` ADD `status` TINYINT(2) NOT NULL DEFAULT '0';
+
+--
+-- Table structure for table `business_bookings`
+--
+
+CREATE TABLE IF NOT EXISTS `business_bookings` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `business_id` int(12) NOT NULL,
+  `user_id` int(12) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `business_queries`
+--
+
+CREATE TABLE IF NOT EXISTS `business_queries` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `user_id` int(12) NOT NULL,
+  `business_id` int(12) NOT NULL,
+  `comment` text NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `feedbacks`
+--
+
+CREATE TABLE IF NOT EXISTS `feedbacks` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `user_id` int(12) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `type` enum('feedback','contactus') NOT NULL DEFAULT 'feedback',
+  `comment` text NOT NULL,
+  `created` datetime NOT NULL,
+  `feedback_type` varchar(255) DEFAULT NULL,
+  `subject` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+ALTER TABLE `businesses` CHANGE `website` `website` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL, CHANGE `facebook` `facebook` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL, CHANGE `twitter` `twitter` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL, CHANGE `gplus` `gplus` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `businesses` CHANGE `landmark` `landmark` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+ALTER TABLE `businesses` CHANGE `facilities` `facilities` MEDIUMTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+ALTER TABLE `businesses` CHANGE `facilities` `facilities` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL DEFAULT NULL;
+ALTER TABLE `businesses` CHANGE `about_us` `about_us` TEXT CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+
+
+--
+-- Table structure for table `careers`
+--
+
+CREATE TABLE IF NOT EXISTS `careers` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `created` datetime NOT NULL,
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `faqs`
+--
+
+CREATE TABLE IF NOT EXISTS `faqs` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `created` datetime NOT NULL,
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  `sequence` tinyint(2) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+-- 16-09-2015
+ALTER TABLE `businesses` CHANGE `subcategory_id` `subcategory_id` VARCHAR(50) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+--
+-- Table structure for table `business_subcategories`
+--
+
+CREATE TABLE IF NOT EXISTS `business_subcategories` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `business_id` int(12) NOT NULL,
+  `subcategory_id` int(12) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+-- 18-09-2015
+ALTER TABLE `businesses` ADD `established` DATE NULL ;
+ALTER TABLE `businesses` ADD `refercode` VARCHAR(10) NULL ;
+ALTER TABLE `businesses` ADD `rating` TINYINT(2) NULL ;
+ALTER TABLE `businesses` CHANGE `rating` `rating` FLOAT NULL DEFAULT NULL;
+
+
+-- 21-09-2015
+ALTER TABLE `business_timings` ADD `holiday` TINYINT(2) NULL DEFAULT '0' AFTER `close_time`;
+
+-- 21-09-2015
+ALTER TABLE `business_galleries` ADD `type` VARCHAR(15) NOT NULL DEFAULT 'image' AFTER `media`;
+
+--
+-- Table structure for table `contacts` --22-09-2015
+--
+
+CREATE TABLE IF NOT EXISTS `contacts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(150) NOT NULL,
+  `email` varchar(150) NOT NULL,
+  `subject` varchar(255) NOT NULL,
+  `message` text NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+-- 22-09-2015
+ALTER TABLE `contacts` ADD `phone` VARCHAR(15) NOT NULL AFTER `message`, ADD `mode` ENUM('email', 'call') NULL AFTER `phone`;
+
+-- 22-09-2015
+ALTER TABLE `contacts` CHANGE `email` `email` VARCHAR(150) CHARACTER SET utf8 COLLATE utf8_general_ci NULL, CHANGE `subject` `subject` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NULL;
+
+-- 22-09-2015
+ALTER TABLE `business_galleries` CHANGE `type` `type` ENUM('image','video') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'image';
+
+-- 22-09-2015
+ALTER TABLE `business_bookings` ADD `booking_date` DATETIME NOT NULL AFTER `user_id`, ADD `booked_seat` TINYINT(2) NOT NULL AFTER `booking_date`, ADD `booked_for` VARCHAR(255) NOT NULL AFTER `booked_seat`;
+-- 23-09-2015
+ALTER TABLE `business_galleries` ADD `video_id` VARCHAR(50) NULL AFTER `type`;
+
+ALTER TABLE `businesses` ADD `user_id` int(11) NOT NULL AFTER `id`;
+
+
+-- 23-09-2015
+ALTER TABLE `contacts` ADD `business_id` INT(11) NOT NULL AFTER `name`;
+
+
+-- 24-09-2015
+ALTER TABLE `business_bookings` CHANGE `booking_date` `from_date` DATETIME NOT NULL, CHANGE `booked_seat` `to_date` DATETIME NOT NULL, CHANGE `booked_for` `seats` INT(5) NOT NULL;
+ALTER TABLE `business_bookings` ADD `approved` TINYINT(2) NOT NULL DEFAULT '0' COMMENT '0- pending 1- approved' AFTER `seats`;
+ALTER TABLE `feedbacks` CHANGE `user_id` `user_id` INT(11) NULL;
+
+
+--
+-- Table structure for table `business_booking_details`
+--
+
+CREATE TABLE IF NOT EXISTS `business_booking_details` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `booking_id` int(12) NOT NULL,
+  `name` varchar(255) NOT NULL,
+  `age` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- 28-09-2015
+ALTER TABLE `contacts` CHANGE `mode` `mode` ENUM('email','call') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'call';
+-- 30-09-2015
+ALTER TABLE `businesses` CHANGE `phone` `phone` VARCHAR(255) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
+
+-- 01-10-2015
+ALTER TABLE `businesses` ADD `type` ENUM('group','private') NOT NULL DEFAULT 'public' , 
+ADD `dob` DATE NULL , ADD `education` TEXT NULL , ADD `tagline` VARCHAR(255) NULL , 
+ADD `experience` VARCHAR(255) NULL , ADD `preferred_location` ENUM('own','customer') NOT NULL DEFAULT 'own' , 
+ADD `free_demo_class` ENUM('yes','no') NOT NULL DEFAULT 'yes' ;
+
+--
+-- Table structure for table `business_languages`
+--
+
+CREATE TABLE IF NOT EXISTS `business_languages` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `business_id` int(12) NOT NULL,
+  `lang_id` int(4) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+ALTER TABLE `static_pages` ADD `modified` DATETIME NOT NULL AFTER `created`;
+ALTER TABLE `users` ADD `modified` DATETIME NOT NULL AFTER `created`;
+ALTER TABLE `faqs` ADD `modified` DATETIME NOT NULL AFTER `created`;
+ALTER TABLE `categories` ADD `modified` DATETIME NOT NULL AFTER `created`;
+ALTER TABLE `careers` ADD `modified` DATETIME NOT NULL AFTER `created`;
+ALTER TABLE `contacts` ADD `modified` DATETIME NOT NULL AFTER `created`;
+ALTER TABLE `feedback` ADD `modified` DATETIME NOT NULL AFTER `created`;
+ALTER TABLE `business_bookings` ADD `modified` DATETIME NOT NULL AFTER `created`;
+ALTER TABLE `business_booking_details` ADD `modified` DATETIME NOT NULL AFTER `created`;
+ALTER TABLE `business_ratings` ADD `modified` DATETIME NOT NULL AFTER `created`;
+ALTER TABLE `cities` ADD `created` DATETIME NOT NULL , ADD `modified` DATETIME NOT NULL ;
+ALTER TABLE `localities` ADD `created` DATETIME NOT NULL , ADD `modified` DATETIME NOT NULL ;
+ALTER TABLE `business_timings` ADD `created` DATETIME NOT NULL , ADD `modified` DATETIME NOT NULL ;
+
+-- 05-10-2015
+ALTER TABLE `businesses` ADD `type` ENUM('group','private') NOT NULL DEFAULT 'group' AFTER `rating`;
+ALTER TABLE `businesses` CHANGE `type` `type` ENUM('group','private') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'group';
+
+--
+-- Table structure for table `business_languages`
+--
+
+CREATE TABLE IF NOT EXISTS `business_languages` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `business_id` int(12) NOT NULL,
+  `lang_id` int(4) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+
+-- 2015-10-07
+--
+-- Table structure for table `inquiries`
+--
+
+CREATE TABLE IF NOT EXISTS `inquiries` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `name` varchar(100) NOT NULL,
+  `phone` varchar(25) NOT NULL,
+  `email` varchar(100) NOT NULL,
+  `type` enum('private','group') NOT NULL DEFAULT 'private',
+  `location` enum('customer','own') NOT NULL DEFAULT 'customer',
+  `min_age` tinyint(2) NOT NULL DEFAULT '0',
+  `max_age` tinyint(2) NOT NULL DEFAULT '0',
+  `category_id` int(4) NOT NULL DEFAULT '0',
+  `sub_category_id` int(4) NOT NULL DEFAULT '0',
+  `comment` text,
+  `ip` varchar(45) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+ALTER TABLE `inquiries` ADD `city` VARCHAR(255) NULL , ADD `area` VARCHAR(255) NULL ;
+
+-- 2015-10-08
+ALTER TABLE `business_ratings` CHANGE `status` `status` TINYINT(2) NULL DEFAULT '0' COMMENT '0 - Pending, 1 - Active';
+
+-- 2015-10-09
+ALTER TABLE `businesses`
+CHANGE `type` `type` enum('group','private') COLLATE 'utf8_general_ci' NOT NULL DEFAULT 'group' AFTER `rating`;
+UPDATE `businesses` SET `type` = 'group' WHERE `businesses`.`type` = '';
+
+ALTER TABLE `businesses` ADD `views` INT(11) NOT NULL DEFAULT '0' ;
+
+--
+-- Table structure for table `business_views`
+--
+
+CREATE TABLE IF NOT EXISTS `business_views` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `business_id` int(11) NOT NULL,
+  `user_id` int(11) DEFAULT NULL,
+  `ip` varchar(50) NOT NULL,
+  `viewed_on` datetime NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 ;
+
+-- 12-10-2015
+ALTER TABLE `feedback` CHANGE `type` `type` ENUM('feedback','contactus','ask') CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL DEFAULT 'feedback';
+ALTER TABLE `feedback` ADD `phone` VARCHAR(25) NULL ;
+
+-- 13-10-2015
+ALTER TABLE `businesses` ADD `max_price` FLOAT NOT NULL DEFAULT '0' AFTER `price`;
+ALTER TABLE `businesses` CHANGE `max_price` `max_price` float(10,2) NOT NULL DEFAULT '0' AFTER `price`;
+
+-- 19-10-2015
+new table state, city, dist
+UPDATE `localities` SET `city_id` = '3317' WHERE `localities`.`city_id` = 1;
+UPDATE `localities` SET `city_id` = '3135' WHERE `localities`.`city_id` = 2;
+UPDATE `localities` SET `city_id` = '3072' WHERE `localities`.`id` = 6;
+UPDATE `localities` SET `city_id` = '3811' WHERE `localities`.`city_id` = 9;
+UPDATE `localities` SET `city_id` = '3072' WHERE `localities`.`city_id` = 3;
+
+UPDATE `businesses` SET `city_id` = '3317' WHERE `businesses`.`city_id` = 1;
+UPDATE `businesses` SET `city_id` = '3135' WHERE `businesses`.`city_id` = 2;
+UPDATE `businesses` SET `city_id` = '3811' WHERE `businesses`.`city_id` = 9;
+
+--
+-- Table structure for table `business_keywords`
+--
+CREATE TABLE IF NOT EXISTS `business_keywords` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `business_id` int(12) NOT NULL,
+  `keyword` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `business_id` (`business_id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8  ;
+
+ALTER TABLE `feedback`
+CHANGE `type` `type` enum('feedback','contactus','ask','writetous') COLLATE 'utf8_general_ci' NOT NULL DEFAULT 'feedback' AFTER `email`;
+
+TRUNCATE businesses;
+TRUNCATE business_bookings;
+TRUNCATE business_booking_details;
+TRUNCATE business_facilities;
+TRUNCATE business_galleries;
+TRUNCATE business_keywords;
+TRUNCATE business_languages;
+TRUNCATE business_queries;
+TRUNCATE business_ratings;
+TRUNCATE business_subcategories;
+TRUNCATE business_timings;
+TRUNCATE business_views;
+TRUNCATE feedback;
+TRUNCATE inquiries;
+TRUNCATE users;
+TRUNCATE contacts;
+
+ALTER TABLE `business_bookings` ADD `reference_code` VARCHAR(10) NULL AFTER `modified`;
+
+ALTER TABLE `business_ratings` CHANGE `rating` `rating` float(4,2) NOT NULL DEFAULT '0' AFTER `modified`;
+
+
+CREATE TABLE `business_rating_replies` (
+  `id` int(12) NOT NULL AUTO_INCREMENT PRIMARY KEY,
+  `rating_id` int(11) NOT NULL,
+  `user_id` int(11) NOT NULL,
+  `comment` text NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  FOREIGN KEY (`user_id`) REFERENCES `users` (`id`)
+) ENGINE='InnoDB' COLLATE 'utf8_general_ci';
+
+ALTER TABLE `businesses` ADD `ratio` VARCHAR(20) NOT NULL AFTER `max_age_group`;
+
+CREATE TABLE IF NOT EXISTS `contact_number_requests` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `business_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 ;
+
+CREATE TABLE IF NOT EXISTS `packages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(30) NOT NULL,
+  `price` int(11) NOT NULL COMMENT 'Per Month',
+  `priority_search` tinyint(2) NOT NULL COMMENT '0 = No , 1 = Yes',
+  `personal_subdomain` tinyint(2) NOT NULL COMMENT '0 = No , 1 = Yes',
+  `social_media_widget` tinyint(2) NOT NULL COMMENT '0 = No , 1 = Yes',
+  `map_integration` tinyint(2) NOT NULL COMMENT '0 = No , 1 = Yes',
+  `photo_limit` text NOT NULL,
+  `video_limit` text NOT NULL,
+  `subscription` int(11) NOT NULL,
+  `listing_period` int(11) NOT NULL,
+  `payment_method` text NOT NULL,
+  `enquiries` text NOT NULL,
+  `address_detail` tinyint(2) NOT NULL COMMENT '0 = No , 1 = Yes',
+  `call_request` tinyint(2) NOT NULL COMMENT '0 = No , 1 = Yes',
+  `review` text NOT NULL,
+  `faq` text NOT NULL,
+  `status` tinyint(2) NOT NULL COMMENT '0 = Inactive , 1 = Active',
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8  ;
+
+--
+-- Table structure for table `bulk_emails`
+--
+
+CREATE TABLE IF NOT EXISTS `bulk_emails` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `subject` text NOT NULL,
+  `content` text NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `bulk_email_attachments`
+--
+
+CREATE TABLE IF NOT EXISTS `bulk_email_attachments` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bulk_email_id` int(11) NOT NULL,
+  `filename` text NOT NULL,
+  `file` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `bulk_email_receivers`
+--
+
+CREATE TABLE IF NOT EXISTS `bulk_email_receivers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `bulk_email_id` int(11) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8;
+
+--
+-- Table structure for table `subscriptions`
+--
+
+CREATE TABLE IF NOT EXISTS `subscriptions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `package_id` int(11) NOT NULL,
+  `name` varchar(30) NOT NULL,
+  `price` int(11) NOT NULL COMMENT 'Per Month',
+  `priority_search` tinyint(2) NOT NULL COMMENT '0 = No , 1 = Yes',
+  `personal_subdomain` tinyint(2) NOT NULL COMMENT '0 = No , 1 = Yes',
+  `social_media_widget` tinyint(2) NOT NULL COMMENT '0 = No , 1 = Yes',
+  `map_integration` tinyint(2) NOT NULL COMMENT '0 = No , 1 = Yes',
+  `photo_limit` text NOT NULL,
+  `video_limit` text NOT NULL,
+  `subscription` int(11) NOT NULL,
+  `listing_period` int(11) NOT NULL,
+  `payment_method` text NOT NULL,
+  `enquiries` text NOT NULL,
+  `address_detail` tinyint(2) NOT NULL COMMENT '0 = No , 1 = Yes',
+  `call_request` tinyint(2) NOT NULL COMMENT '0 = No , 1 = Yes',
+  `review` text NOT NULL,
+  `faq` text NOT NULL,
+  `status` tinyint(2) NOT NULL COMMENT '0 = Inactive , 1 = Active',
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+ALTER TABLE `users` ADD `facebook_id` TEXT NULL DEFAULT NULL AFTER `verification_code`, ADD `google_id` TEXT NULL DEFAULT NULL AFTER `facebook_id`;
+
+ALTER TABLE `users` ADD `profile_complete` TINYINT(2) NOT NULL DEFAULT '0' AFTER `google_id`;
+
+--
+-- Table structure for table `transactions`
+--
+
+CREATE TABLE IF NOT EXISTS `transactions` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `package_id` int(11) NOT NULL,
+  `mode` varchar(150) NOT NULL,
+  `reference_number` varchar(255) NOT NULL,
+  `issued_date` date NOT NULL,
+  `status` enum('Scheduled','Initiated','Processing','Authorized','On Hold','Declined',' Cancelled',' Completed') NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+ALTER TABLE `transactions` CHANGE `status` `status` ENUM('Scheduled','Initiated','Processing','Authorized','On Hold','Declined','Cancelled','Completed') CHARACTER SET latin1 COLLATE latin1_swedish_ci NOT NULL;
+
+ALTER TABLE `transactions` ADD `is_complete` TINYINT(2) NOT NULL AFTER `modified`;
+
+ALTER TABLE `transactions` CHANGE `is_complete` `is_complete` TINYINT(2) NOT NULL DEFAULT '0';
+
+--
+-- Table structure for table `business_faqs`
+--
+
+CREATE TABLE IF NOT EXISTS `business_faqs` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `business_id` int(11) NOT NULL,
+  `title` varchar(255) NOT NULL,
+  `content` text NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  `status` tinyint(2) NOT NULL DEFAULT '1',
+  `sequence` tinyint(2) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+Date-11/01/2016
+ALTER TABLE `transactions` ADD `subscription_id` INT(11) NOT NULL AFTER `package_id`;
+
+Date-12/01/2016
+ALTER TABLE `businesses` ADD `subdomain_keyword` VARCHAR(255) NULL DEFAULT NULL AFTER `about_us`;
+
+Date-13/01/2016
+ALTER TABLE `subscriptions` ADD `subscription_start` DATETIME NULL DEFAULT NULL AFTER `subscription`, ADD `subscription_end` DATETIME NULL DEFAULT NULL AFTER `subscription_start`;
+
+--Date-13/01/2016
+-- Table structure for table `package_discounts`
+--
+
+CREATE TABLE IF NOT EXISTS `package_discounts` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `package_id` int(11) NOT NULL,
+  `period_duration` int(11) NOT NULL,
+  `period_type` varchar(20) NOT NULL,
+  `discount` int(11) NOT NULL,
+  `discount_type` varchar(20) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+Date-15/01/2016
+ALTER TABLE `subscriptions` ADD `offer` TEXT NULL DEFAULT NULL AFTER `faq`, ADD `min_subscription_period` INT(11) NULL DEFAULT NULL AFTER `offer`;
+
+Date-18/01/2016
+ALTER TABLE `subscriptions` DROP `min_subscription_period`;
+
+
+Date-21/01/2016
+CREATE TABLE IF NOT EXISTS `ledgers` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `credit` int(11) NOT NULL,
+  `debit` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+Date-21/01/2016
+ALTER TABLE `ledgers` ADD `subscription_id` INT(11) NOT NULL AFTER `user_id`;
+
+Date-22/01/2016
+ALTER TABLE `transactions` ADD `price` INT(11) NOT NULL AFTER `subscription_id`;
+
+Date-22/01/2016
+ALTER TABLE `ledgers` ADD `balance` INT(11) NOT NULL AFTER `debit`;
+
+Date-22/01/2016
+ALTER TABLE `ledgers` CHANGE `credit` `credit` INT(11) NULL, CHANGE `debit` `debit` INT(11) NULL, CHANGE `balance` `balance` INT(11) NULL DEFAULT NULL;
+
+Date-22/01/2016
+ALTER TABLE `transactions` CHANGE `price` `price` INT(11) NULL;
+
+Date-22/01/2016
+ALTER TABLE `transactions` ADD `discount` INT(11) NULL AFTER `price`;
+
+Date-22/01/2016
+ALTER TABLE `transactions` DROP `is_complete`;
+
+Date-22/01/2016
+ALTER TABLE `transactions`
+CHANGE `price` `price` float(11,2) NULL AFTER `subscription_id`,
+CHANGE `discount` `discount` float(11,2) NULL AFTER `price`;
+
+
+ALTER TABLE `transactions` CHANGE `price` `sub_total` FLOAT(11,2) NULL DEFAULT NULL;
+ALTER TABLE `transactions` ADD `final_price` FLOAT NULL AFTER `discount`;
+
+ALTER TABLE `transactions`
+CHANGE `sub_total` `sub_total` float(11,2) NULL AFTER `subscription_id`,
+CHANGE `final_price` `final_price` float(11,2) NULL AFTER `discount`;
+
+-- 2016-01-23
+ALTER TABLE `businesses` ADD `seo_url` varchar(25) NULL;
+
+-- 2016-02-01
+CREATE TABLE IF NOT EXISTS `business_categories` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `business_id` int(11) NOT NULL,
+  `category_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+-- 2016-02-18
+CREATE TABLE IF NOT EXISTS `group_booking_requests` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `email` varchar(255) NOT NULL,
+  `phone` varchar(255) NOT NULL,
+  `group_size` enum('2 to 5','6 to 10','11 to 15','16 or more') NOT NULL,
+  `looking_for` text NOT NULL,
+  `address` text NOT NULL,
+  `city_id` int(11) NOT NULL,
+  `locality_id` int(11) NOT NULL,
+  `pincode` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `is_complete` tinyint(2) NOT NULL DEFAULT '0',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+-- 2016-03-02
+CREATE TABLE IF NOT EXISTS `advertisements` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` text,
+  `contact_name` varchar(255) NOT NULL,
+  `email` varchar(255) DEFAULT NULL,
+  `phone` varchar(255) DEFAULT NULL,
+  `address` text,
+  `city_id` int(11) NOT NULL,
+  `page_id` int(11) NOT NULL,
+  `url` varchar(255) DEFAULT NULL,
+  `budget_type` enum('Daily','Total') NOT NULL,
+  `budget price` float NOT NULL,
+  `cost_per_view` float NOT NULL,
+  `schedule_type` enum('immediate','Specific') NOT NULL,
+  `campaign_start` date DEFAULT NULL,
+  `campaign_end` date DEFAULT NULL,
+  `image` text NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  `status` tinyint(4) NOT NULL COMMENT '0 => Inactive ,1=> Active',
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+--
+-- Table structure for table `advertisement_pages`(date-2016-03-02)
+--
+
+CREATE TABLE IF NOT EXISTS `advertisement_pages` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) NOT NULL,
+  `description` text,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+
+--
+-- Table structure for table `business_favorites`(date-2016-03-04)
+--
+
+CREATE TABLE IF NOT EXISTS `business_favorites` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `user_id` int(11) NOT NULL,
+  `business_id` int(11) NOT NULL,
+  `created` datetime NOT NULL,
+  `modified` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+ALTER TABLE `business_favorites` ADD `is_complete` TINYINT(2) NOT NULL DEFAULT '0' AFTER `modified`;

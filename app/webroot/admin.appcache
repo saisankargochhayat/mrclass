@@ -1,0 +1,41 @@
+CACHE MANIFEST
+CACHE:
+# 2015-09-11 v1.0.0
+/mrclass/css/bootstrap.min.css
+/mrclass/css/font-awesome.min.css
+/mrclass/css/ionicons.min.css
+/mrclass/css/blue.css
+/mrclass/css/AdminLTE.min.css
+/mrclass/css/datepicker3.css
+#/mrclass/css/daterangepicker-bs3.css
+/mrclass/js/jquery-1.9.1.min.js
+/mrclass/js/jquery-ui.min.js
+/mrclass/js/jquery.validate.min.js
+/mrclass/js/app.min.js
+/mrclass/js/bootstrap.min.js
+#/mrclass/js/bootstrap-datepicker.js
+/mrclass/js/dataTables.bootstrap.min.js
+#/mrclass/js/daterangepicker.js
+/mrclass/js/fastclick.min.js
+/mrclass/js/dashboard.js
+/mrclass/js/jquery.dataTables.min.js
+#/mrclass/js/jquery.sparkline.min.js
+#/mrclass/js/jquery-jvectormap-1.2.2.min.js
+#/mrclass/js/jquery-jvectormap-world-mill-en.js
+#/mrclass/js/jquery.knob.js
+/mrclass/js/jquery.slimscroll.min.js
+#/mrclass/js/raphael-min.js
+#/mrclass/js/morris.min.js
+/mrclass/js/moment.min.js
+/mrclass/js/jquery.highlight.js
+/mrclass/fonts/fontawesome-webfont.woff2?v=4.4.0
+/mrclass/fonts/ionicons.ttf?v=2.0.1 
+/mrclass/fonts/fontawesome-webfont.woff?v=4.4.0
+/mrclass/fonts/ionicons.woff?v=2.0.1
+/mrclass/fonts/fontawesome-webfont.ttf?v=4.4.0
+
+NETWORK:
+*
+/mrclass
+FALLBACK:
+/html/ /mrclass/

@@ -1,0 +1,26 @@
+CACHE MANIFEST
+# 2015-09-11 v1.0.0
+/mrclass/js/jquery-1.9.1.min.js
+/mrclass/js/jquery-ui.min.js
+/mrclass/js/jquery.validate.min.js
+/mrclass/css/font-awesome.min.css
+/mrclass/css/ionicons.min.css
+#/mrclass/css/jquery-ui.min.css
+/mrclass/images/girl.png
+/mrclass/images/banner.jpg
+/mrclass/images/phone.png
+/mrclass/images/social-media.png
+/mrclass/images/mail.png 
+/mrclass/images/chat.png 
+/mrclass/img/logo.png
+/mrclass/images/grey-arrow.png
+/mrclass/images/login_bg.jpg
+/mrclass/images/sup-bg.jpg
+#/mrclass/favicon.ico
+
+NETWORK:
+
+*
+
+FALLBACK:
+#/html/ /mrclass/offline
