@@ -57,7 +57,7 @@ class ContentController extends AppController {
     }
 
     public function blog() {
-        
+
     }
 
     function subcats() {
@@ -170,7 +170,7 @@ class ContentController extends AppController {
     }
 
     function careers() {
-        
+
     }
 
     function press() {
@@ -486,7 +486,7 @@ class ContentController extends AppController {
         $options['joins'] = array(
             array('table' => 'business_ratings', 'alias' => 'BusinessRating', 'type' => 'LEFT', 'conditions' => array('BusinessRating.business_id = Business.id', 'BusinessRating.status' => 1)),
             array('table' => 'business_bookings', 'alias' => 'BusinessBooking', 'type' => 'LEFT', 'conditions' => array('BusinessBooking.business_id = Business.id')),
-            array('table' => 'subscriptions', 'alias' => 'Subscription', 'type' => 'LEFT', 'conditions' => array('Subscription.user_id = Business.user_id')),
+            array('table' => 'subscriptions', 'alias' => 'Subscription', 'type' => 'LEFT', 'conditions' => array('Subscription.user_id = Business.user_id' , 'Subscription.status' => 1)),
         );
         #array('table' => 'business_categories', 'alias' => 'BusinessCategory', 'type' => 'LEFT', 'conditions' => array('BusinessCategory.business_id = Business.id'))
         #array('table' => 'business_subcategories', 'alias' => 'BusinessSubcategory', 'type' => 'LEFT', 'conditions' => array('BusinessSubcategory.business_id = Business.id')),
@@ -536,7 +536,7 @@ class ContentController extends AppController {
         else{
           $options['order'] = array('Subscription.package_id' => 'DESC');
         }
-        
+
 
         $options['group'] = array('Business.id');
 
@@ -864,7 +864,7 @@ class ContentController extends AppController {
     }
 
     function event_list() {
-        
+
     }
 
     function ajax_event_list() {
@@ -890,7 +890,7 @@ class ContentController extends AppController {
         #pr($options);exit;
         $events = $this->Event->find('all', $options);
         #pr($events);exit;
-        #$log = $this->Event->getDataSource()->showLog( false ); 
+        #$log = $this->Event->getDataSource()->showLog( false );
         #debug( $log );
         $this->set('events', $events);
         unset($options['page']);
