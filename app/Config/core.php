@@ -389,7 +389,7 @@ Cache::config('_cake_model_', array(
 ));
 
 if (!defined('SUB_FOLDER')) {
-    if(strstr($_SERVER['HTTP_HOST'],'mrclass.in')){
+    if(strstr($_SERVER['HTTP_HOST'],'winterfell.tk')){
         define('SUB_FOLDER', '');
     }else{
         define('SUB_FOLDER', 'mrclass/');
