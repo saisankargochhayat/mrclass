@@ -512,9 +512,9 @@ class ContentController extends AppController {
             $this->set(compact('location_data'));
         }
         /* sorting */
-        $options['order'] = array("CASE Subscription.name WHEN 'Premium' THEN Subscription.listing_period END DESC",
+        /*$options['order'] = array("CASE Subscription.name WHEN 'Premium' THEN Subscription.listing_period END DESC",
             "distance ASC",
-            "COUNT(BusinessBooking.id) DESC");
+            "COUNT(BusinessBooking.id) DESC");*/
         if ($sort != '') {
             switch ($sort) {
                 case 'price-high-to-low':$options['order'] = array('Business.price' => 'DESC');
