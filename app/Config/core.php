@@ -1,3 +1,128 @@
+MrClass.in
+1. Credentials
+a) Live server credentials:
+1. http://www.mrclass.in/
+DB Name: mrclass
+2. Admin url: http://www.mrclass.in/mcsuper/
+u: admin
+p: <Password already with MRC>
+
+Blog
+3. Blog url: http://www.mrclass.in/blog/ - It is a wordpress application
+DB Name: mrclass_blog
+4. http://www.mrclass.in/blog/mcblogadmin/
+u: mcblog
+p: v$XK$4JGkqvk^HLOazxbeh5$
+
+b) Database credentials:
+url: http://www.mrclass.in/phpmyadmin/
+1. Root user:
+u: root
+p: mrclass123
+2. application user:
+u: mrclassuser
+p: 8JhJDuqkjItp6sXN
+
+c) Staging server details:
+1. http://stag.mrclass.in/ (currently it is not working as IP might not have mapped with domain)
+DB Name: staging_mrclass
+2. Admin url: http://stag.mrclass.in/mcsuper/
+u: admin
+p: admin
+Blog
+3. Blog url: http://stag.mrclass.in/blog/
+DB Name: staging_mrclass_blog
+4. http://stag.mrclass.in/blog/mcblogadmin
+u: admin
+p: <check>
+
+2. Environment details of CakePHP Application -  MrClass.in
+a) Server version: Apache/2.2.15
+b) OS: Centos x86_64
+c) PHP: 5.3.3
+d) MySql: 5.5.48
+e) CakePHP: 2.7
+f) Blog is developed in WordPress
+g) wkhtmltopdf 0.10.0 rc2
+h) ImageMagick 6.7.2-7
+
+3. Hosting details:
+a) Machine type: n1-standard-1 (1 vCPU, 3.75 GB memory)
+b) https://cloud.google.com
+user: andolasoft@mrclass.in
+pass: googlehosting123
+c) Domain Hosting: GoDaddy server
+
+4. API details
+Facebook: These credentials required to update in \app\Config\bootstrap.php,
+The app currently present in our FB account! Please change to your FB account so that we can remove from ours.
+a)
+
+1. define('FACEBOOK_APP_ID', 'xxxxxx');
+2. define('FACEBOOK_APP_SECRET', 'xxxx);
+3. define('FACEBOOK_REDIRECT_URI', 'xxxxxx');
+b) Google: These credentials required to update in \app\Config\bootstrap.php
+The app currently present in our GOOGLE account! Please change to your GOOGLE account so that we can remove from ours.
+
+1. define('GOOGLE_CLIENT_ID', 'xxxxxx');
+2. define('GOOGLE_CLIENT_SECRET', 'xxxxxx');
+3. define('GOOGLE_OAUTH_REDIRECT_URI', 'xxxxxx');
+
+c) Sendgrid email: https://app.sendgrid.com/ - This is 3rd party vendor
+u: mrclass.india
+p: test1234
+
+5. Page wise controller and views
+
+1) Edit profile: '/edit-profile', 'controller' = 'users', 'view' = 'edit'
+2) Favorites: '/favorites', 'controller' = 'businesses', 'view' = 'favorites'
+3) Sign-up: '/signup', 'controller' = 'users', 'view' = 'sign_up'
+4) Dashboard: '/dashboard', 'controller' = 'users', 'view' = 'dashboard'
+5) Login: '/login', 'controller' = 'users', 'view' = 'login'
+6) Logout: '/logout', 'controller' = 'users', 'view' = 'logout'
+7) Activate: '/activate', 'controller' = 'users', 'view' = 'activate_account'
+8) Forgot password: '/forgot-password', 'controller' = 'users', 'view' = 'forgot_password'
+9) Reset password: '/reset-password/*', 'controller' = 'content', 'view' = 'reset_password', 'title' => 'Reset Password'
+10) Change Password: '/change-password', 'controller' = 'users', 'view' = 'change_password_user'
+11) Recently viewed classes: '/recently-viewed-classes', 'controller' = 'users', 'view' = 'recently_viewed_classes'
+12) Categories: '/categories/*', 'controller' = 'content', 'view' = 'categories'
+13) Category details: '/c-:id-:slug', 'controller' = 'content', 'view' = 'categories'
+14) Press: '/press', 'controller' = 'content', 'view' = 'press'
+15) Feedback: '/feedback', 'controller' = 'content', 'view' = 'feedback'
+16) Contact Us: '/contact-us', 'controller' = 'content', 'view' = 'contact_us'
+17) Looking for a tutor: '/looking-for-a-tutor', 'controller' = 'content', 'view' = 'looking_for_tutor'
+18) Refer a friend: '/refer-a-friend', 'controller' = 'content', 'view' = 'refer_friend'
+19) Search: '/search', 'controller' = 'content', 'view' = 'search'
+20) FAQs: '/faq', 'controller' = 'content', 'view' = 'faq'
+21) Career: '/career', 'controller' = 'content', 'view' = 'careers'
+22) About us: '/about-us', 'controller' = 'content', 'view' = 'static_page', 'about_us'
+23) Terms and Conditions: '/terms-and-conditions', 'controller' = 'content', 'view' = 'static_page', 'terms_and_conditions'
+24) Privacy policy: '/privacy-policy', 'controller' = 'content', 'view' = 'static_page', 'privacy_policy'
+25) Our team: '/our-team', 'controller' = 'content', 'view' = 'static_page', 'the_team'
+26) The platform: '/the-platform', 'controller' = 'content', 'view' = 'static_page', 'the_platform'
+27) Business dashboard: '/business-dashboard', 'controller' = 'businesses', 'view' = 'index'
+28) Create business: '/create-business/*', 'controller' = 'businesses', 'view' = 'add'
+29) Edit business: '/edit-business-:id-:slug', 'controller' = 'businesses', 'view' = 'edit'
+30) Business gallery images: '/business-pics-:id-:slug', 'controller' = 'business_galleries', 'view' = 'add'
+31) Business videos: '/business-videos-:id-:slug', 'controller' = 'business_galleries', 'view' = 'add_video_link'
+32) Business timings: '/business-timing-:id-:slug', 'controller' = 'business_timings', 'view' = 'add'
+33) Business FAQs: '/business-faq-:id-:slug', 'controller' = 'BusinessFaqs', 'view' = 'index'
+34) Business courses: '/business-courses-:id-:slug', 'controller' = 'Businesses', 'view' = 'courses'
+35) Business details: '/b-:id-:slug', 'controller' = 'businesses', 'view' = 'view'
+36) Call requests: '/call-requests', 'controller' = 'reports', 'view' = 'call_requests'
+37) My Bookings: '/my-bookings', 'controller' = 'reports', 'view' = 'my_bookings'
+38) Booking requests: '/booking-requests', 'controller' = 'reports', 'view' = 'bookings'
+39) My reviews: '/my-reviews', 'controller' = 'business_ratings', 'view' = 'my_reviews'
+40) Business reviews: '/business-reviews', 'controller' = 'business_ratings', 'view' = 'reviews'
+41) Google login: '/google_login', 'controller' = 'users', 'view' = 'google_login'
+42) Choose subscription: '/choose-subscription', 'controller' = 'subscriptions', 'view' = 'choose_subscription'
+43) Question banks: '/question-banks', 'controller' = 'QuestionCategories', 'view' = 'index'
+44) Question bank detail: '/question-papers/:id/:slag', 'controller' = "questions", 'view' = "index"
+45) Question bank download url: '/question-bank-download/:cid/:id/:cat/:file', 'controller' = "questions", 'view' = "question_bank_download"
+46) Create event: '/create-event', 'controller' = 'events', 'view' = 'add'
+47) Edit event: '/edit-event-:id', 'controller' = 'events', 'view' = 'edit'
+48) Event list: '/events-list', 'controller' = 'content', 'view' = 'event_list'
+49) Event details: '/e-:id-:slug', 'controller' = 'content', 'view' = 'event_view'
 <?php
 
 /**
