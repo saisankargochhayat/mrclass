@@ -27,4 +27,10 @@
 .Trashes
 Icon?
 ehthumbs.db
-Thumbs.db
+Thumbs.db/vendors
+/build
+/dist
+/tags
+*.mo
+/app/webroot/upload
+/app
