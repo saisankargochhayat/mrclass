@@ -533,6 +533,10 @@ class ContentController extends AppController {
                     break;
             }
         }
+        else{
+          $options['order'] = array('Subscription.package_id' => 'DESC');
+        }
+        
 
         $options['group'] = array('Business.id');
 
