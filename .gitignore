@@ -14,6 +14,7 @@
 /app/webroot/thumbs
 /app/webroot/upload.tar.gz
 /blog/wp-config.php
+/.htaccess
 # IDE and editor specific files #
 #################################
 /nbproject
