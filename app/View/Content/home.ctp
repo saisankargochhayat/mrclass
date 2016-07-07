@@ -137,6 +137,7 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
+
         $("img.lazy").lazyload({effect : "fadeIn"});
         $('#HomeCity').change(function () {
             if ($(this).val() > 0) {
