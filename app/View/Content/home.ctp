@@ -29,16 +29,16 @@
 <?php if (is_array($middleads) && count($middleads) > 0) { ?>
     <div class="home_user_bus">
         <div class="wrapper home-page-ad-md-blk">
-          <marquee>
+          <div class='marquee' id='middleadsmarquee'>
             <?php foreach ($middleads as $key => $addata) { ?>
-                <div class="home-page-ad-md adblocks">
+                <div class="home-page-ad-md">
                     <a class="" href="<?php echo $addata['Advertisement']['url'] != "" ? $addata['Advertisement']['url'] : "javascript://"; ?>" target="_blank">
                         <img src="<?php echo $this->Format->ad_image($addata['Advertisement'], 350, 200, 0); ?>" alt="" style=""/>
                     </a>
-                    <div class="cb"></div>
+
                 </div>
             <?php } ?>
-          </marquee>
+          </div>
             <div class="cb"></div>
         </div>
     </div>
@@ -135,9 +135,23 @@
         <?php } ?>
     </div>
 </div>
+<script type="text/javascript" src="js/crawler.js">
+/* Text and/or Image Crawler Script v1.53 (c)2009-2011 John Davenport Scheuer
+   as first seen in http://www.dynamicdrive.com/forums/
+   username: jscheuer1 - This Notice Must Remain for Legal Use
+*/
+</script>
 <script type="text/javascript">
     $(document).ready(function () {
+      marqueeInit({
+        uniqueid: 'middleadsmarquee',
+        style: {
 
+        },
+        inc: 5, //speed - pixel increment for each iteration of this marquee's movement
+        mouse: 'pause', //mouseover behavior ('pause' 'cursor driven' or false)
+        persist: true
+      });
         $("img.lazy").lazyload({effect : "fadeIn"});
         $('#HomeCity').change(function () {
             if ($(this).val() > 0) {
