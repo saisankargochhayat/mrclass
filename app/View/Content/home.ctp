@@ -30,7 +30,7 @@
 <?php if (is_array($middleads) && count($middleads) > 0) { ?>
     <div class="home_user_bus">
         <div class="wrapper home-page-ad-md-blk">
-          <marquee>
+          <div class='marquee'>
             <?php foreach ($middleads as $key => $addata) { ?>
                 <div class="home-page-ad-md adblocks">
                     <a class="" href="<?php echo $addata['Advertisement']['url'] != "" ? $addata['Advertisement']['url'] : "javascript://"; ?>" target="_blank">
@@ -39,7 +39,7 @@
                     <div class="cb"></div>
                 </div>
             <?php } ?>
-          </marquee>
+          </div>
             <div class="cb"></div>
         </div>
     </div>
@@ -138,6 +138,18 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
+      $('.marquee').marquee({
+    //speed in milliseconds of the marquee
+    duration: 8000,
+    //gap in pixels between the tickers
+    gap: 0,
+    //time in milliseconds before the marquee will start animating
+    delayBeforeStart: 0,
+    //'left' or 'right'
+    direction: 'left',
+    //true or false - should the marquee be duplicated to show an effect of continues flow
+    duplicated: true
+});
         $("img.lazy").lazyload({effect : "fadeIn"});
         $('#HomeCity').change(function () {
             if ($(this).val() > 0) {
