@@ -30,7 +30,7 @@
 <?php if (is_array($middleads) && count($middleads) > 0) { ?>
     <div class="home_user_bus">
         <div class="wrapper home-page-ad-md-blk">
-          <div class='marquee'>
+          <marquee>
             <?php foreach ($middleads as $key => $addata) { ?>
                 <div class="home-page-ad-md adblocks">
                     <a class="" href="<?php echo $addata['Advertisement']['url'] != "" ? $addata['Advertisement']['url'] : "javascript://"; ?>" target="_blank">
@@ -39,7 +39,7 @@
                     <div class="cb"></div>
                 </div>
             <?php } ?>
-          </div>
+          </marquee>
             <div class="cb"></div>
         </div>
     </div>
