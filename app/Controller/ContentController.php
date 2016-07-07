@@ -37,7 +37,7 @@ class ContentController extends AppController {
         $userinfo = $this->Session->read('Auth.User');
         #$user_location = $this->Session->read('user_location');
         $page_view = 5;
-        $middleads = $this->Advertisement->getHomeBannerImages($page_view, 3, $userinfo, '', 'home middle');
+        $middleads = $this->Advertisement->getHomeBannerImages($page_view, 6, $userinfo, '', 'home middle');
         $page_view = 4;
         $ads = $this->Advertisement->getHomeBannerImages($page_view, '1', $userinfo, '', 'home');
         $this->set(compact('ads', 'middleads'));
