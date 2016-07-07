@@ -889,7 +889,7 @@ label.w50{width: 48%;}
 
 .home-page-ad-md-blk{text-align: center;}
 .home-page-ad{text-align: center; margin-top:10px;}
-.home-page-ad-md{text-align: center; display:inline-block; width: 33.1%;padding: 5px;}
+.home-page-ad-md{text-align: center; display:inline-block;padding: 5px;}
 .adblocks img{max-width:100%; }
 
 @media only screen and (max-width:1290px){
