@@ -2,7 +2,6 @@
 <?php echo $this->Html->script('modernizr.custom.86080', array('block' => 'bannerResources'));?>
 <?php echo $this->Html->script('jquery.lazyload.min', array('block' => 'lazyLoad'));?>
 <style type="text/css">
-
 </style>
 <div class="home_banner">
     <div class="scroll_btm_bnr"><a class="scroll_btm" href="javascript:void(0);">&nbsp;</a></div>
@@ -138,18 +137,6 @@
 </div>
 <script type="text/javascript">
     $(document).ready(function () {
-      $('.marquee').marquee({
-    //speed in milliseconds of the marquee
-    duration: 8000,
-    //gap in pixels between the tickers
-    gap: 0,
-    //time in milliseconds before the marquee will start animating
-    delayBeforeStart: 0,
-    //'left' or 'right'
-    direction: 'left',
-    //true or false - should the marquee be duplicated to show an effect of continues flow
-    duplicated: true
-});
         $("img.lazy").lazyload({effect : "fadeIn"});
         $('#HomeCity').change(function () {
             if ($(this).val() > 0) {
@@ -158,7 +145,6 @@
                 $("#HomeLocality").find('option:gt(0)').remove();
             }
         });
-
         $("#search-btn").click(function () {
             $url = $('#HomeHomeForm').attr('action')+"#";
             $url += ($('#HomeCity').val()>0)? "city="+$('#HomeCity').val()+"|" : "";
@@ -183,7 +169,6 @@
                 window.location.hash='';
                 setTimeout(function(){$(".srart_discovering").trigger('click');},500);
             }
-
         }
     });
     function update_locality(cityid) {
@@ -269,7 +254,6 @@
         });
         <?php if(!empty($location['cityid']) && $location['cityid'] >0){echo "update_locality(".$location['cityid'].")";}?>
     });
-
     $(window).resize(function () {
         if ($(window).width() > 1100) {
             var height = $(window).height();
