@@ -486,7 +486,7 @@ class ContentController extends AppController {
         $options['joins'] = array(
             array('table' => 'business_ratings', 'alias' => 'BusinessRating', 'type' => 'LEFT', 'conditions' => array('BusinessRating.business_id = Business.id', 'BusinessRating.status' => 1)),
             array('table' => 'business_bookings', 'alias' => 'BusinessBooking', 'type' => 'LEFT', 'conditions' => array('BusinessBooking.business_id = Business.id')),
-            array('table' => 'subscriptions', 'alias' => 'Subscription', 'type' => 'LEFT', 'conditions' => array('Subscription.user_id = Business.user_id' , 'Subscription.status' => 1)),
+            array('table' => 'subscriptions', 'alias' => 'Subscription', 'type' => 'LEFT', 'conditions' => array('Subscription.user_id = Business.user_id')),
         );
         #array('table' => 'business_categories', 'alias' => 'BusinessCategory', 'type' => 'LEFT', 'conditions' => array('BusinessCategory.business_id = Business.id'))
         #array('table' => 'business_subcategories', 'alias' => 'BusinessSubcategory', 'type' => 'LEFT', 'conditions' => array('BusinessSubcategory.business_id = Business.id')),
@@ -534,7 +534,7 @@ class ContentController extends AppController {
             }
         }
         else{
-          $options['order'] = array('Subscription.package_id' => 'DESC');
+          $options['order'] = array('CASE WHEN Subscription.status = 1 THEN 1 ELSE 0 END DESC , Subscription.package_id DESC,  RAND()');
         }
 
 
