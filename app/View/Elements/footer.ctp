@@ -48,7 +48,7 @@ s0.parentNode.insertBefore(s1,s0);
             <a data-href="<?php echo $this->Html->url('/businesses/group_booking/')?>" onclick="event.preventDefault();" class="anchor ajax cmn_btn_n chng_sub">Group Booking</a>
         </div> */ ?>
         <div class="copy_right">&copy; <?php echo date('Y');?> <?php echo Configure::read('COMPANY.NAME'); ?>. All rights reserved.</div>
-        <div class="dev-by">Developed & Maintained by <a href="http://www.andolasoft.com/" target="_blank">Andolasoft</a></div>
+        <div class="dev-by">Maintained by <a href="https://www.winterfellws.co/" target="_blank">WinterfellWS</a></div>
     </div>
 </div>
 <?php if(empty($error)){ ?>
@@ -90,12 +90,12 @@ s0.parentNode.insertBefore(s1,s0);
                 $header = parseFloat($('#toggleclick').height())+parseFloat($('#toggleclick').css('padding-top').replace('px',''))+parseFloat($('#toggleclick').css('padding-bottom').replace('px',''))
                 $top = parseFloat($('.ask_us_rt').height())-$header;
                 $(".ask_us_rt").css("bottom",'-'+$top+'px');
-                $("#toggleclick").click(function(){ 
+                $("#toggleclick").click(function(){
                     $header = parseFloat($('#toggleclick').height())+parseFloat($('#toggleclick').css('padding-top').replace('px',''))+parseFloat($('#toggleclick').css('padding-bottom').replace('px',''))
                     $top = parseFloat($('.ask_us_rt').height())-$header;
                     $(".ask_us_rt").css("bottom") === '0px' ? $(".ask_us_rt").css("bottom",'-'+$top+'px'):$(".ask_us_rt").css("bottom",'0px');
                     //$(".ask_us_rt").css("bottom") === '0px' ? $(".ask_us_rt").css("bottom",'-324px'):$(".ask_us_rt").css("bottom",'0px');
-                });	
+                });
             }
             $("#open_popup").click(function(){
                     $(".popup_profile").slideToggle(500);
@@ -117,8 +117,8 @@ s0.parentNode.insertBefore(s1,s0);
                 resizeBoxHeight('load');
             }
 	});
-        
-        
+
+
         function resizeBoxHeight(mode){
             var mode = mode || '';
             //$footer = parseFloat($('.footer').height())+parseFloat($('.footer').css('padding-top').replace('px',''))+parseFloat($('.footer').css('padding-bottom').replace('px',''))
@@ -146,12 +146,12 @@ s0.parentNode.insertBefore(s1,s0);
             //console.log(elemBottom-docViewBottom)
             return ((elemBottom <= docViewBottom) && (elemTop >= docViewTop));
         }
-        
+
         <?php if (!isset($params['admin']) && $this->Session->read('Auth.User.id') > 0 && $this->params['action'] != 'home') {?>
         <?php } elseif ($this->params['action'] == 'search') {?>
             $("#header").addClass("sticky_header",100);
         <?php }else{ ?>
-            $(window).scroll(function() {    
+            $(window).scroll(function() {
                 var scroll = $(window).scrollTop();
                 if (scroll >= 1) {
                         $("#header").addClass("sticky_header",300);
@@ -162,5 +162,3 @@ s0.parentNode.insertBefore(s1,s0);
             });
         <?php } ?>
 </script>
-
-
