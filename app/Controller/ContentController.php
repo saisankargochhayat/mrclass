@@ -42,6 +42,11 @@ class ContentController extends AppController {
         $ads = $this->Advertisement->getHomeBannerImages($page_view, '1', $userinfo, '', 'home');
         $this->set(compact('ads', 'middleads'));
         /* ad list end */
+        $this->loadModel('Press');
+        $options = array('conditions' => array('Press.status' => '1'), 'order' => array('Press.published_date DESC'));
+        $press = $this->Press->find('all', $options);
+        $this->set(compact('press'));
+        /*Press list*/
     }
 
     public function static_page() {

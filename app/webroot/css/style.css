@@ -851,6 +851,10 @@ transition: all 0.2s ease-out;
 .press_page .cont_listing .prs_rcnt .list_view_lft_cnt{width:100%; text-align: justify; margin:5px 0 0;}
 .cmn_static_mc.press_page  .static_pg_cnt{font-size:16px; line-height:24px;}
 
+.home_page  .cont_listing {
+  height: auto;
+  width: auto;
+}
 /*tab*/
 
 .tab-update-details ul{margin:0 0 0 -40px;}
