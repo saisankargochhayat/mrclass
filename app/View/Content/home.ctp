@@ -116,11 +116,11 @@
                     <?php if (is_array($press) && count($press) > 0): ?>
                       <div class='marquee' id='pressmarquee'>
                         <?php foreach ($press as $key => $data): ?>
-                            <div class="cont_listing fl">
+                            <div class="cont_listing home-page-ad-md">
                                 <a title="<?php echo h($data['Press']['name']); ?>" href="<?php echo $this->Format->validate_url($data['Press']['link']); ?>" target="_blank">
                                     <div class="prs_rcnt">
                                         <div class="relative">
-                                            <h2 class="ellipsis-view" style='text-align:left'><?php echo h($data['Press']['name']); ?></h2>
+                                            <h2 class="ellipsis-view"><?php echo h($data['Press']['name']); ?></h2>
                                             <h4><?php echo h($data['Press']['source']); ?> <?php echo strtotime($data['Press']['published_date'])>0 ? " on " : "" ;?> <?php echo $this->Format->dateFormat($data['Press']['published_date']); ?></h4>
                                         </div>
                                         <?php /* <div class="list_view_lft_cnt">
