@@ -109,9 +109,9 @@
             <?php } ?>
             <div class="cb"></div>
         </div>
-        <div class="cmn_static_mc press_page home_page">
+        <div class="cmn_static_mc press_page home_page home_catg">
             <div class="wrapper">
-                <h1>Press</h1>
+                <h2>Media Mentions</h2>
                 <div class="static_pg_cnt">
                     <?php if (is_array($press) && count($press) > 0): ?>
                       <div class='marquee' id='pressmarquee'>
