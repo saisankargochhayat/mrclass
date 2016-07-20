@@ -128,6 +128,7 @@ class CitiesController extends AppController {
      * @return void
      */
     public function admin_edit($id = null) {
+        CakeLog::write('debug', 'A special message for activity logging');
         $this->layout = 'ajax';
         if (!$this->City->exists($id)) {
             throw new NotFoundException(__('Invalid city'));
