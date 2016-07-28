@@ -75,7 +75,7 @@ class CitiesController extends AppController {
                 array('db' => '`c`.`business_status`', 'dt' => 4, 'field' => 'business_status')
             );
             $joinQuery = "FROM `cities` AS `c` JOIN `states` AS `s` ON (`s`.`id` = `c`.`state`)";
-            #$extraWhere = "`u`.`salary` >= 90000";        
+            #$extraWhere = "`u`.`salary` >= 90000";
             $extraWhere = "";
 
             App::uses('SSP', 'Utility');
@@ -172,14 +172,14 @@ class CitiesController extends AppController {
 
     /**
      * Ajax unique city name check
-     * while validating add and edit city 
+     * while validating add and edit city
      * form in admin section.
      * @return type boolean in JSON
      */
     function cityname_unique_edit() {
         $cityname = trim(strtolower($this->request->data['City']['name']));
         if (isset($this->request->data['id']) && !empty($this->request->data['id'])) {
-            $option['conditions'] = array('LOWER(City.name)' => $cityname, "CIty.id !=" => $this->request->data['id']);
+            $option['conditions'] = array('LOWER(City.name)' => $cityname, "City.id !=" => $this->request->data['id']);
         } else {
             $option['conditions'] = array('LOWER(City.name)' => $cityname);
         }

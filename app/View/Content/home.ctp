@@ -2,7 +2,6 @@
 <?php echo $this->Html->script('modernizr.custom.86080', array('block' => 'bannerResources'));?>
 <?php echo $this->Html->script('jquery.lazyload.min', array('block' => 'lazyLoad'));?>
 <style type="text/css">
-
 </style>
 <div class="home_banner">
     <div class="scroll_btm_bnr"><a class="scroll_btm" href="javascript:void(0);">&nbsp;</a></div>
@@ -30,14 +29,16 @@
 <?php if (is_array($middleads) && count($middleads) > 0) { ?>
     <div class="home_user_bus">
         <div class="wrapper home-page-ad-md-blk">
+          <div class='marquee' id='middleadsmarquee'>
             <?php foreach ($middleads as $key => $addata) { ?>
-                <div class="home-page-ad-md adblocks">
+                <div class="home-page-ad-md">
                     <a class="" href="<?php echo $addata['Advertisement']['url'] != "" ? $addata['Advertisement']['url'] : "javascript://"; ?>" target="_blank">
                         <img src="<?php echo $this->Format->ad_image($addata['Advertisement'], 350, 200, 0); ?>" alt="" style=""/>
                     </a>
-                    <div class="cb"></div>
+
                 </div>
             <?php } ?>
+          </div>
             <div class="cb"></div>
         </div>
     </div>
@@ -108,7 +109,38 @@
             <?php } ?>
             <div class="cb"></div>
         </div>
-
+        <div class="cmn_static_mc press_page home_page home_catg">
+            <div class="wrapper">
+                <h2>Media Mentions</h2>
+                <div class="static_pg_cnt">
+                    <?php if (is_array($press) && count($press) > 0): ?>
+                      <div class='marquee' id='pressmarquee'>
+                        <?php foreach ($press as $key => $data): ?>
+                            <div class="cont_listing home-page-ad-md">
+                                <a title="<?php echo h($data['Press']['name']); ?>" href="<?php echo $this->Format->validate_url($data['Press']['link']); ?>" target="_blank">
+                                    <div class="prs_rcnt">
+                                        <div class="relative">
+                                            <h2 class="ellipsis-view"><?php echo h($data['Press']['name']); ?></h2>
+                                            <h4><?php echo h($data['Press']['source']); ?> <?php echo strtotime($data['Press']['published_date'])>0 ? " on " : "" ;?> <?php echo $this->Format->dateFormat($data['Press']['published_date']); ?></h4>
+                                        </div>
+                                        <?php /* <div class="list_view_lft_cnt">
+                                          <?php echo h($data['Press']['description']); ?>
+                                          </div> */ ?>
+                                    </div>
+                                    <div class="prs_lcnt">
+                                        <img src="<?php echo $this->Format->show_press_image($data['Press'], 300, 300, 0); ?>" alt=""/>
+                                    </div>
+                                </a>
+                            </div>
+                        <?php endforeach; ?>
+                        </div>
+                    <?php else: ?>
+                        <h2>Coming soon...</h2>
+                    <?php endif; ?>
+                    <div class="cb"></div>
+                </div>
+            </div>
+        </div>
         <div class="cat_frm">
             <div class="fl txt_lst">Looking for something else?</div>
             <div class="fl">
@@ -134,8 +166,31 @@
         <?php } ?>
     </div>
 </div>
+<script type="text/javascript" src="js/crawler.js">
+/* Text and/or Image Crawler Script v1.53 (c)2009-2011 John Davenport Scheuer
+   as first seen in http://www.dynamicdrive.com/forums/
+   username: jscheuer1 - This Notice Must Remain for Legal Use
+*/
+</script>
 <script type="text/javascript">
     $(document).ready(function () {
+      marqueeInit({
+        uniqueid: 'middleadsmarquee',
+        style: {
+        },
+        inc: 5, //speed - pixel increment for each iteration of this marquee's movement
+        mouse: 'pause', //mouseover behavior ('pause' 'cursor driven' or false)
+        persist: true
+      });
+      marqueeInit({
+        uniqueid: 'pressmarquee',
+        style: {
+        },
+        inc: 2, //speed - pixel increment for each iteration of this marquee's movement
+        mouse: 'pause', //mouseover behavior ('pause' 'cursor driven' or false)
+        moveatleast: 2,
+        persist: false
+      });
         $("img.lazy").lazyload({effect : "fadeIn"});
         $('#HomeCity').change(function () {
             if ($(this).val() > 0) {
@@ -144,7 +199,6 @@
                 $("#HomeLocality").find('option:gt(0)').remove();
             }
         });
-
         $("#search-btn").click(function () {
             $url = $('#HomeHomeForm').attr('action')+"#";
             $url += ($('#HomeCity').val()>0)? "city="+$('#HomeCity').val()+"|" : "";
@@ -169,7 +223,6 @@
                 window.location.hash='';
                 setTimeout(function(){$(".srart_discovering").trigger('click');},500);
             }
-
         }
     });
     function update_locality(cityid) {
@@ -255,7 +308,6 @@
         });
         <?php if(!empty($location['cityid']) && $location['cityid'] >0){echo "update_locality(".$location['cityid'].")";}?>
     });
-
     $(window).resize(function () {
         if ($(window).width() > 1100) {
             var height = $(window).height();

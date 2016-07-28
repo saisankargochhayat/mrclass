@@ -37,11 +37,16 @@ class ContentController extends AppController {
         $userinfo = $this->Session->read('Auth.User');
         #$user_location = $this->Session->read('user_location');
         $page_view = 5;
-        $middleads = $this->Advertisement->getHomeBannerImages($page_view, 3, $userinfo, '', 'home middle');
+        $middleads = $this->Advertisement->getHomeBannerImages($page_view, 6, $userinfo, '', 'home middle');
         $page_view = 4;
         $ads = $this->Advertisement->getHomeBannerImages($page_view, '1', $userinfo, '', 'home');
         $this->set(compact('ads', 'middleads'));
         /* ad list end */
+        $this->loadModel('Press');
+        $options = array('conditions' => array('Press.status' => '1'), 'order' => array('Press.published_date DESC'));
+        $press = $this->Press->find('all', $options);
+        $this->set(compact('press'));
+        /*Press list*/
     }
 
     public function static_page() {
@@ -486,7 +491,7 @@ class ContentController extends AppController {
         $options['joins'] = array(
             array('table' => 'business_ratings', 'alias' => 'BusinessRating', 'type' => 'LEFT', 'conditions' => array('BusinessRating.business_id = Business.id', 'BusinessRating.status' => 1)),
             array('table' => 'business_bookings', 'alias' => 'BusinessBooking', 'type' => 'LEFT', 'conditions' => array('BusinessBooking.business_id = Business.id')),
-            array('table' => 'subscriptions', 'alias' => 'Subscription', 'type' => 'LEFT', 'conditions' => array('Subscription.user_id = Business.user_id' , 'Subscription.status' => 1)),
+            array('table' => 'subscriptions', 'alias' => 'Subscription', 'type' => 'LEFT', 'conditions' => array('Subscription.user_id = Business.user_id')),
         );
         #array('table' => 'business_categories', 'alias' => 'BusinessCategory', 'type' => 'LEFT', 'conditions' => array('BusinessCategory.business_id = Business.id'))
         #array('table' => 'business_subcategories', 'alias' => 'BusinessSubcategory', 'type' => 'LEFT', 'conditions' => array('BusinessSubcategory.business_id = Business.id')),
@@ -534,7 +539,7 @@ class ContentController extends AppController {
             }
         }
         else{
-          $options['order'] = array('Subscription.package_id' => 'DESC');
+          $options['order'] = array('CASE WHEN Subscription.status = 1 THEN 1 ELSE 0 END DESC , Subscription.package_id DESC,  RAND()');
         }
 
 

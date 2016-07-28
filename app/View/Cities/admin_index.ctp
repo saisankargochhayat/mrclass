@@ -47,8 +47,17 @@
     </div><!-- /.row -->
 </section><!-- /.content -->
 <?php echo $this->element('modal'); ?>
+<?php
+  if(strstr($_SERVER['HTTP_HOST'],'stag.mrclass.in') || strstr($_SERVER['HTTP_HOST'],'mrclass.in')){
+    $subdir = 'var subdir = "";';
+  }else{
+    $subdir = 'var subdir = "/mrclass";';
+  }
+?>
 <script type="text/javascript">
     $(document).ready(function () {
+        <?php echo $subdir;
+        ?>
         table = $('#city_listing').DataTable({
             "paging": true,
             "lengthChange": true,
@@ -80,9 +89,9 @@
                     "mData": null,
                     "mRender": function (data, type, row) {
                         var formatted_html = "";
-                        formatted_html += '<span class="action_links"><a data-target="#cityAddModal" data-original-title="Edit" data-toggle="modal" rel="tooltip" href="/mrclass/mcsuper/cities/edit/' + row[0] + '"><i class="fa fa-pencil"></i></a></span>';
+                        formatted_html += '<span class="action_links"><a data-target="#cityAddModal" data-original-title="Edit" data-toggle="modal" rel="tooltip" ' + 'href="'+subdir+'/mcsuper/cities/edit/' + row[0] + '"><i class="fa fa-pencil"></i></a></span>';
                         formatted_html += '<span class="action_links">';
-                        formatted_html += '<a href="/mrclass/mcsuper/cities/delete/' + row[0] + '" rel="tooltip" data-original-title="Delete" onclick="return confirm(\'Are you sure?\');"><span class="fa fa-trash-o fa-fw"></span></a>';
+                        formatted_html += '<a href="'+subdir+'/mcsuper/cities/delete/' + row[0] + '" rel="tooltip" data-original-title="Delete" onclick="return confirm(\'Are you sure?\');"><span class="fa fa-trash-o fa-fw"></span></a>';
                         return formatted_html;
                     }
                 }
