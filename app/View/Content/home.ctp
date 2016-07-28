@@ -9,7 +9,7 @@
     <?php /*<div class="bnr_effect"><img src="<?php echo HTTP_ROOT; ?>images/girl.png" class="bounceInDown animated-one" alt="" /></div> */ ?>
     <div class="wrapper">
         <div class="ultimate">
-            <h2>The ultimate place to discover activities & academics of your choice in the neighborhood.</h2>
+            <h2>The ultimate place to discover activity & academic classes by the best tutors in Bhubaneswar.</h2>
             <div class="blink-discount home-discount-tag">
                 <img src="<?php echo HTTP_ROOT; ?>img/discount-logo.png"/>
             </div>
@@ -169,7 +169,7 @@
                 window.location.hash='';
                 setTimeout(function(){$(".srart_discovering").trigger('click');},500);
             }
-            
+
         }
     });
     function update_locality(cityid) {
