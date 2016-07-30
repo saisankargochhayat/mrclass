@@ -26,7 +26,7 @@
                         <a class="main-uc anchor">Categories</a>
                         <div class="categorylist">
                             <span class="sub-arrow-top"></span>
-                            <ul>   
+                            <ul>
                             <?php if(!empty($topcategories) && is_array($topcategories)) {  $cntr=0;?>
                                 <?php foreach ($topcategories as $key => $cat) { ?>
                                     <?php /*<li><a href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'categories', 'id' => $key, 'slug' => $this->Format->seo_url($cat))) ?>"><?php echo $cat; ?></a></li>*/?>
@@ -50,7 +50,7 @@
                         </div>
                     </li>
                     <li <?php if($parms['controller'] == 'QuestionCategories' && $parms['action'] == 'index'){ echo 'class="active"';}?>>
-                        <a href="<?php echo $this->Html->url(array('controller' => 'QuestionCategories', 'action' => 'index')) ?>/">Question Bank</a>
+                        <a href="<?php echo $this->Html->url(array('controller' => 'QuestionCategories', 'action' => 'index')) ?>/">Resources</a>
                     </li>
                     <li <?php if($parms['controller'] == 'content' && $parms['action'] == 'blog'){ echo 'class="active"';}?>>
                         <a class="main-uc"  href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'blog')) ?>/">Blog</a>
@@ -86,7 +86,7 @@
                         </li>
                     <?php }?>
                     <?php if ($this->Session->read('Auth.User.id') > 0) {?>
-                    <li>					
+                    <li>
                         <span class="prof_m_span">
                             <a class="anchor top-user-image" style="background:none" id="open_popup">
                                     <img src="<?php echo HTTP_ROOT; ?>images/grey-arrow.png" class="dw-aro" />
@@ -169,7 +169,7 @@
                 <?php } ?>
             </ul>
         </div>
-		
+
             <div class="m-screen-menu">
                 <ul>
                     <li <?php if(($parms['controller'] == 'content' && $parms['action'] == 'home') || ($parms['controller'] == 'users' && $parms['action'] == 'dashboard')){ echo 'class="active"';}?>>
@@ -188,7 +188,7 @@
                                     <li><a href="<?php echo HTTP_ROOT.'search/#cid='.$key ?>"><?php echo $cat; ?></a></li>
                                 <?php } ?>
                             <?php } ?>
-							
+
                           <?php if($this->params['action'] == 'home'){ ?>
                                     <li><input class="cmn_btn_n srart_discovering" value="Start Discovering" type="button" style="font-size:14px;color:#fff"/></li>
                             <?php }else{ ?>
@@ -219,7 +219,7 @@
                         </li>
                     <?php }?>
                     <?php if ($this->Session->read('Auth.User.id') > 0) {?>
-                    <li>					
+                    <li>
                         <span class="prof_m_span">
                             <a class="anchor top-user-image" style="background:none" id="open_popup"><img src="<?php echo $this->Format->user_photo($this->Session->read('Auth.User'),40,40,1); ?>" alt="User" style=""/></a>
                             <div class="popup_profile_m">
@@ -269,13 +269,13 @@
                         <li class="btn_top"><a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'login')) ?>">Sign In</a></li>
                     <?php } ?>
                 </ul>
-            </div>		
+            </div>
     </div>
 </div>
 <script type="text/javascript">
  $(document).ready(function(){
         $('.small-menu').click(function(){
             $(".m-screen-menu").slideToggle(500);
-        }); 
+        });
     });
 </script>
