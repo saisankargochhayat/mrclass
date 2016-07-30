@@ -43,7 +43,7 @@
         </div>
     </div>
 <?php } ?>
-<div class="home_user_bus">
+<?php /*<div class="home_user_bus">
     <div class="wrapper">
         <h2>How It Works</h2>
         <div class="us_bs_mc">
@@ -88,7 +88,7 @@
         </div>
         <div class="cb"></div>
     </div>
-</div>
+</div>*/ ?>
 <div class="home_catg">
     <div class="wrapper">
         <h2>Categories</h2>
