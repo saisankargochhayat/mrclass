@@ -22,9 +22,9 @@
                       </div>
                       <div id="collapsefirst" class="panel-collapse collapse">
                           <div class="panel-body">
-                            <div class="home_user_bus">
+                            <div class="home_user_bus" style="margin-bottom:0px;">
                                 <div class="wrapper">
-                                    <h2>How It Works</h2>
+                                    <h2 style="margin:5px 0px 0px 0px;">How It Works</h2>
                                     <div class="us_bs_mc">
                                         <h4>Users</h4>
                                         <div class="us_bs_iner rtbdr btbdr fl">
