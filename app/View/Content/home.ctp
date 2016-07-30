@@ -8,7 +8,7 @@
     <?php /*<div class="bnr_effect"><img src="<?php echo HTTP_ROOT; ?>images/girl.png" class="bounceInDown animated-one" alt="" /></div> */ ?>
     <div class="wrapper">
         <div class="ultimate">
-            <h2>The ultimate place to discover activity & academic classes by the best tutors in Bhubaneswar.</h2>
+            <h2>Discover the best classes, courses, tutors and hobbies in Bhubaneswar and Cuttack.</h2>
             <div class="blink-discount home-discount-tag">
                 <img src="<?php echo HTTP_ROOT; ?>img/discount-logo.png"/>
             </div>
