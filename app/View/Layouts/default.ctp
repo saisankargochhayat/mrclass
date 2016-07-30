@@ -29,11 +29,11 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
        <link href="https://fonts.googleapis.com/css?family=Roboto" rel="stylesheet" type="text/css">
        <script src="https://apis.google.com/js/api:client.js"></script>
     <?php } ?>
-        <meta name="viewport" content="width=device-width, height=device-height,  initial-scale=1.0, user-scalable=no;user-scalable=0;"/>
+        <meta name="viewport" content="width=device-width, height=device-height,  initial-scale=1.0, user-scalable=0"/>
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <?php echo $this->Html->charset(); ?>
         <title><?php echo Configure::read('COMPANY.META_TITLE'); ?><?php echo ($this->fetch('title') != '' ? " | " : "").$this->fetch('title'); ?></title>
-        
+
         <?php
         echo $this->Html->meta('icon');
         if(Configure::read('COMPANY.META_DESCRIPTION')!=''){
@@ -79,15 +79,15 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             var ACTION = '<?php echo $parms["action"]; ?>';
             $device = (/android|webos|iphone|ipad|ipod|blackberry|iemobile|opera mini/i.test(navigator.userAgent.toLowerCase()));
         </script>
-		
-        <style>  
+
+        <style>
           @media all and (-ms-high-contrast:none) {
                       a, img {border:none;  outline:none}
                       .ultimate h2{font-weight:300;}
            }
         </style>
         <!--[if lte IE 9]>
-             <style>  
+             <style>
                      a, img {border:none;  outline:none}
                      .ultimate h2{font-weight:300;}
                      .banner_form .src-button{background:#4096ee;}
@@ -101,7 +101,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
         <?php if($this->params['controller'] == 'content' && $this->params['action'] == 'home'){?>
             <?php echo $this->element('banner'); ?>
         <?php }?>
-		
+
         <div id="container" style="position:relative;">
             <div class="overlay_div" style="display:none;">
                     <img src="<?php echo HTTP_ROOT; ?>images/ajax-loader.gif" class="loader" alt="loader">
@@ -139,7 +139,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                 });
             });
         </script>
-        <?php 
+        <?php
         $act_arr = array('home', 'sign_up', 'login');
         if(in_array($this->params['action'], $act_arr)){ ?>
             <div id="map"></div>
@@ -154,7 +154,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             <input type="hidden" id="localitydeflat"/>
         <?php if($this->Session->read('user_location.lon') == ''){ ?>
             <script type="text/javascript">
-            
+
                 // Note: This example requires that you consent to location sharing when
                 // prompted by your browser. If you see the error "The Geolocation service
                 // failed.", it means you probably did not give permission for the browser to
@@ -185,20 +185,20 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                                         //alert(addr2);
                                         $("#localityLatitude, #latitude").val(results[1].geometry.location.lat());
                                         $("#localityLongitude, #longitude").val(results[1].geometry.location.lng());
-                                        
+
                                         if(typeof results != 'undefined' && typeof results[1] != 'undefined'){
                                             $.each(results[1].address_components,function(key,val){
                                                 if(val.types[0] == 'locality') {
-                                                    //console.log(val.long_name) 
+                                                    //console.log(val.long_name)
                                                     //$('#InquiryCity').val(val.long_name);
                                                     $('#localityCity').val(val.long_name);
                                                     if($('#HomeCity').length > 0){
                                                         $('#HomeCity').find('option').each(function(){
-                                                            //console.log($(this).html()) 
+                                                            //console.log($(this).html())
                                                             //console.log('levenshtein: '+levenshtein($(this).html(),val.long_name)+" : " +$(this).html());
                                                             //if($(this).html() == val.long_name){
                                                             if(levenshtein($(this).html(),val.long_name) < 2){
-                                                                //console.log($(this).val()) 
+                                                                //console.log($(this).val())
                                                                 set_city($(this).val());
                                                                 $('#localityCityId').val($(this).val());
                                                             }
@@ -240,7 +240,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                             'Error: The Geolocation service failed.' :
                             'Error: Your browser doesn\'t support geolocation.');
                 }
-                
+
                 function save_data(){
                         var params = {lat:$("#localityLatitude").val(),lon:$("#localityLongitude").val(),'city':$('#localityCity').val(),'cityid':$('#localityCityId').val()};
                         $.post(HTTP_ROOT+'content/update_location',params,function(response){console.log(response)});
@@ -248,7 +248,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
             </script>
             <script src="https://maps.googleapis.com/maps/api/js?key=<?php echo GOOGLE_MAP_KEY; ?>&callback=initMap&libraries=places&#038;sensor=true"></script>
             <?php
-            }elseif($this->Session->read('user_location.city')!=''){ 
+            }elseif($this->Session->read('user_location.city')!=''){
                 $city = $this->Session->read('user_location.city');
                 ?>
             <script type="text/javascript">
@@ -257,7 +257,7 @@ $cakeVersion = __d('cake_dev', 'CakePHP %s', Configure::version())
                         $('#HomeCity,#UserCity').find('option').each(function(){
                             //console.log('levenshtein: '+levenshtein($(this).html(),'<?php echo $city;?>'));
                             //if($(this).html() == '<?php echo $city;?>'){
-                            //console.log($(this).val()+' >> '+$(this).html()) 
+                            //console.log($(this).val()+' >> '+$(this).html())
                             if(parseInt(levenshtein($(this).html(),'<?php echo $city;?>')) < 2){
                                 set_city($(this).val());
                                 $('#localityCityId').val($(this).val());
