@@ -22,11 +22,11 @@
                       </div>
                       <div id="collapsefirst" class="panel-collapse collapse">
                           <div class="panel-body">
-                            <div class="home_user_bus" style="margin-bottom:0px;">
+                            <div class="home_user_bus" style="margin-bottom:0px">
                                 <div class="wrapper">
                                     <h2 style="margin:5px 0px 0px 0px;">How It Works</h2>
                                     <div class="us_bs_mc">
-                                        <h4>Users</h4>
+                                        <h4 style="font-size:24px">Users</h4>
                                         <div class="us_bs_iner rtbdr btbdr fl">
                                             <div class="us_bs_img"><img src="<?php echo HTTP_ROOT; ?>images/user1.png" alt="User1" width="66" height="50" /></div>
                                             <p>Looking for an Activity or Academic Class in your neighborhood? <a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'sign_up')) ?>">Register</a> with us. It's FREE...</p>
@@ -46,7 +46,7 @@
                                         <div class="cb20"></div>
                                     </div>
                                     <div class="us_bs_mc">
-                                        <h4>Service Providers</h4>
+                                        <h4 style="font-size:24px">Service Providers</h4>
                                         <div class="us_bs_iner rtbdr btbdr fl">
                                             <div class="us_bs_img"><img src="<?php echo HTTP_ROOT; ?>images/busi1.png" alt="Business1" width="66" height="50" /></div>
                                             <p>Looking to expand your Business potential? <a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'sign_up')) ?>">Register</a> with us.</p>
