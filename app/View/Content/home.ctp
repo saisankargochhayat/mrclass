@@ -118,17 +118,8 @@
                         <?php foreach ($press as $key => $data): ?>
                             <div class="cont_listing home-page-ad-md">
                                 <a title="<?php echo h($data['Press']['name']); ?>" href="<?php echo $this->Format->validate_url($data['Press']['link']); ?>" target="_blank">
-                                    <div class="prs_rcnt">
-                                        <div class="relative">
-                                            <h2 class="ellipsis-view"><?php echo h($data['Press']['name']); ?></h2>
-                                            <h4><?php echo h($data['Press']['source']); ?> <?php echo strtotime($data['Press']['published_date'])>0 ? " on " : "" ;?> <?php echo $this->Format->dateFormat($data['Press']['published_date']); ?></h4>
-                                        </div>
-                                        <?php /* <div class="list_view_lft_cnt">
-                                          <?php echo h($data['Press']['description']); ?>
-                                          </div> */ ?>
-                                    </div>
                                     <div class="prs_lcnt">
-                                        <img src="<?php echo $this->Format->show_press_image($data['Press'], 300, 300, 0); ?>" alt=""/>
+                                        <img src="<?php echo $this->Format->show_press_image($data['Press'], 120, 120, 0); ?>" alt=""/>
                                     </div>
                                 </a>
                             </div>
