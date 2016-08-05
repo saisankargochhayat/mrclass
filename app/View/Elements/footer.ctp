@@ -132,6 +132,10 @@ s0.parentNode.insertBefore(s1,s0);
             }
             $('.content-left').css('min-height',$height);
             $('.booking_det,.cmn_static_mc,.log_sup, .contact-us-bg,.fpw_frm').css('min-height',$height);
+            var mediaMentions = $('#mediaMentions');
+            if(mediaMentions){
+              mediaMentions.css('min-height',"0px");
+            }
         }
         function isScrolledIntoView(elem)
         {
