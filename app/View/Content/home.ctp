@@ -119,7 +119,7 @@
                             <div class="cont_listing home-page-ad-md">
                                 <a title="<?php echo h($data['Press']['name']); ?>" href="<?php echo $this->Format->validate_url($data['Press']['link']); ?>" target="_blank">
                                     <div class="prs_lcnt">
-                                        <img src="<?php echo $this->Format->show_press_image($data['Press'], 180, 180, 1); ?>" alt=""/>
+                                        <img src="<?php echo $this->Format->show_press_image($data['Press'], 120, 120, 0); ?>" alt=""/>
                                     </div>
                                 </a>
                             </div>
