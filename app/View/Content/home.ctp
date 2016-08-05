@@ -177,10 +177,9 @@
         uniqueid: 'pressmarquee',
         style: {
         },
-        inc: 2, //speed - pixel increment for each iteration of this marquee's movement
+        inc: 5, //speed - pixel increment for each iteration of this marquee's movement
         mouse: 'pause', //mouseover behavior ('pause' 'cursor driven' or false)
-        moveatleast: 2,
-        persist: false
+        persist: true
       });
         $("img.lazy").lazyload({effect : "fadeIn"});
         $('#HomeCity').change(function () {
