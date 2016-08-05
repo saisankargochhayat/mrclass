@@ -109,7 +109,7 @@
             <?php } ?>
             <div class="cb"></div>
         </div>
-        <div class="cmn_static_mc press_page home_page home_catg">
+        <div id='mediaMentions' class="cmn_static_mc press_page home_page home_catg" style="min-height:inherit; !important">
             <div class="wrapper">
                 <h2>Media Mentions</h2>
                 <div class="static_pg_cnt">
@@ -298,14 +298,16 @@
             update_category_business($('#HomeCity').val(), $(this).val());
         });
         <?php if(!empty($location['cityid']) && $location['cityid'] >0){echo "update_locality(".$location['cityid'].")";}?>
+        $('#mediaMentions').removeAttribute("style");
     });
     $(window).resize(function () {
         if ($(window).width() > 1100) {
             var height = $(window).height();
             var head = $(".header").height();
             var total_height = height - (head + 27);
-			$(".home-page").css("background-size", "100% "+height+"px" );
+			      $(".home-page").css("background-size", "100% "+height+"px" );
             $(".home_banner").css("height", total_height);
+            $('#mediaMentions').removeAttribute("style");
         }
     });
 </script>
