@@ -175,8 +175,6 @@
       });
       marqueeInit({
         uniqueid: 'pressmarquee',
-        style: {
-        },
         inc: 5, //speed - pixel increment for each iteration of this marquee's movement
         mouse: 'pause', //mouseover behavior ('pause' 'cursor driven' or false)
         moveatleast : 2,
@@ -298,7 +296,6 @@
             update_category_business($('#HomeCity').val(), $(this).val());
         });
         <?php if(!empty($location['cityid']) && $location['cityid'] >0){echo "update_locality(".$location['cityid'].")";}?>
-        $('#mediaMentions').removeAttribute("style");
     });
     $(window).resize(function () {
         if ($(window).width() > 1100) {
@@ -307,7 +304,6 @@
             var total_height = height - (head + 27);
 			      $(".home-page").css("background-size", "100% "+height+"px" );
             $(".home_banner").css("height", total_height);
-            $('#mediaMentions').removeAttribute("style");
         }
     });
 </script>
