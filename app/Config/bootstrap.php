@@ -136,7 +136,7 @@ Configure::write('COMPANY', array(
     'YOUTUBE' => "",
     'META_TITLE' => 'Mr Class',
     'META_KEYWORDS' => 'class, tutorial, classroom, class works, online classroom, education, classroom training, classroom activity, classroom activities, school activity, computer class, beauty care, beautycare, beauty care classes, Beauty Parlour training, Nail Art, Tattoo Art, Tattoo, Computer, Beauty care activity, find activities, search activity nearby, Art, Craft, art and craft activities, computer training, beauty care training, cooking classes, cookery classes, driving classes, driving training, car driving, education classes, competitive exams, CAT, AIPMT, JEE, IIT JEE, AIEEE, AIIMS, Medical, Engineering, MBA, IAS, Banking, Clerical, IBPS, Science, Commerce, English, Spoken English class, fashion class, fashion classes, fashion training, fashion, health and fitness, health class, fitness class, fitness classes, gym, yoga class, yoga, music and dance class, music and dance classes, Music, Dance, Summer Camp, find home tutor, search classes, photography classes, photography training, summer camps, camp training, sports training, sports classes, training, find classes nearby, find training centres, adventure sports, adventure camps, playschools and activities, playschools, activity and training, kids activity, adult training, Prep school, Play School, tutor, search tutor, tuitions, home tuition, private tuition, Bhubaneswar, Cuttack, Odisha',
-    'META_DESCRIPTION' => 'The ultimate place to discover activities & academics of your choice in the neighborhood',
+    'META_DESCRIPTION' => 'Discover the best classes, courses, tutors and hobbies in Bhubaneswar and Cuttack.',
 ));
 
 ##################File Upload Directory Paths #########################

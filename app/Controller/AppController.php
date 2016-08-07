@@ -48,7 +48,7 @@ class AppController extends Controller {
             )
     ));
     public $meta_titles = array(
-        'home' => 'The ultimate place to discover activities & academics of your choice in the neighborhood',
+        'home' => 'Discover the best classes, courses, tutors and hobbies in Bhubaneswar and Cuttack.',
         'create-business' => 'Create Business',
         'business-dashboard' => 'Business Dashboard',
         'call-requests' => 'Call Request',
