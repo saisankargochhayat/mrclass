@@ -133,16 +133,22 @@
                     <?php }?>
                 </ul>
             </div>
-            <div class="top_log_reg fr">
+            <div class="top_log_reg fr" style="margin-top:5px;">
                 <ul>
                     <?php if ($this->Session->read('Auth.User.id') > 0) { /*?>
                         <li><a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'edit',$user['id'])) ?>">Edit Profile</a></li>
                         <li><a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'logout')) ?>">Logout</a></li>
                     <?php */ } else { ?>
-                        <li <?php if($parms['controller'] == 'users' && $parms['action'] == 'sign_up'){ echo 'class="active"';}?>>
-                            <a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'sign_up')) ?>">Sign Up</a>
+                        <li>
+                          <strong>
+                            <div class="row">
+                              <a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'sign_up')) ?>">Sign Up</a>
+                            </div>
+                            <div class="row">
+                              <a style="padding:5px 3px;" href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'login')) ?>">Sign In</a>
+                            </div>
+                          </strong>
                         </li>
-                        <li class="btn_top"><a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'login')) ?>">Sign In</a></li>
                     <?php } ?>
                 </ul>
             </div>
