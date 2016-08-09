@@ -1,6 +1,6 @@
 <div class="header">
     <div class="wrapper">
-        <div class="fl lft_head">
+        <div class="fl lft_head" style="width:initial">
             <?php
             if (!isset($params['admin']) && $this->Session->read('Auth.User.id') > 0 && $this->Session->read('Auth.User.type') != '1') {
                 $home_url = HTTP_ROOT.'dashboard';
@@ -55,6 +55,9 @@
                     </li>
                     <li <?php if($parms['controller'] == 'content' && $parms['action'] == 'event_list'){ echo 'class="active"';}?>>
                         <a class="main-uc"  href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'event_list')) ?>/">Events</a>
+                    </li>
+                    <li >
+                        <a class="main-uc"  href="<?php echo HTTP_ROOT.'search/#cid=37' ?>">Home Tutor</a>
                     </li>
                 </ul>
             </div>
@@ -212,7 +215,11 @@
                     </li>
                     <li <?php if($parms['controller'] == 'content' && $parms['action'] == 'event_list'){ echo 'class="active"';}?>>
                         <a class="main-uc"  href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'event_list')) ?>/">Events</a>
-                    </li>                </ul>
+                    </li>
+                    <li >
+                        <a class="main-uc"  href="<?php echo HTTP_ROOT.'search/#cid=37' ?>">Home Tutor</a>
+                    </li>
+                   </ul>
 
                 <ul>
                      <?php if ($this->Session->read('Auth.User')) {?>
