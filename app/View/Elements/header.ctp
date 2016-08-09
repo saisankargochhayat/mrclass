@@ -79,7 +79,7 @@
                     </li> */ ?>
 
                      <?php if ($this->Session->read('Auth.User')) {?>
-                       <li><span class="top_ph_num"><?php echo Configure::read('COMPANY.TOLLFREE'); ?></span></li>
+                       <!-- <li><span class="top_ph_num"><?php //echo Configure::read('COMPANY.TOLLFREE'); ?></span></li> -->
                         <li style="padding-left: 17px;" class="take-to-top">Welcome <?php $user_arr = @explode(' ',$user['name']); echo $user_arr[0]; ?>!</li>
                     <?php }else{?>
                         <li class="info_li" style='padding-right:20px'>
@@ -148,10 +148,10 @@
                         <li>
                           <strong>
                             <div class="row">
-                              <a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'sign_up')) ?>">Sign Up</a>
+                              <a style="padding:5px 3px;" href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'login')) ?>">Sign In</a>
                             </div>
                             <div class="row" style="margin-top:8px">
-                              <a style="padding:5px 3px;" href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'login')) ?>">Sign In</a>
+                              <a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'sign_up')) ?>">Sign Up</a>
                             </div>
                           </strong>
                         </li>
