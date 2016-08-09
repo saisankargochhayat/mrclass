@@ -41,11 +41,9 @@
                                 </a>
                                 <?php /*<a data-href="<?php echo $this->Html->url('/businesses/group_booking/')?>" onclick="event.preventDefault();" class="anchor ajax cmn_btn_n ">Group Booking</a>*/?>
                             </li>
-                            <?php if($this->params['action'] == 'home'){ ?>
-                                    <li><input class="cmn_btn_n srart_discovering" value="Start Discovering" type="button" style="font-size:14px;"/></li>
-                            <?php }else{ ?>
-                                    <li><input class="cmn_btn_n" onclick="javascript:window.location.href='<?php echo HTTP_ROOT;?>#discover'" value="Start Discovering" type="button" style="font-size:14px;"/></li>
-                            <?php } ?>
+                            <li>
+                              <a class="main-uc cmn_btn_n"  style="font-size:14px;padding:5px 34px; width:120%;" href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'event_list')) ?>/">EVENTS</a>
+                            </li>
                             </ul>
                         </div>
                     </li>
@@ -201,20 +199,20 @@
                                 <?php } ?>
                             <?php } ?>
 
-                          <?php if($this->params['action'] == 'home'){ ?>
-                                    <li><input class="cmn_btn_n srart_discovering" value="Start Discovering" type="button" style="font-size:14px;color:#fff"/></li>
-                            <?php }else{ ?>
-                                    <li><input class="cmn_btn_n" onclick="javascript:window.location.href='<?php echo HTTP_ROOT;?>#discover'" value="Start Discovering" type="button" style="font-size:14px;color:#fff"/></li>
-                            <?php } ?>
+                            <li>
+                              <a class="main-uc cmn_btn_n"  style="font-size:14px;padding:5px 30px; width:80%" href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'event_list')) ?>/">EVENTS</a>
+                            </li>
                         </ul>
                     </li>
                     <li <?php if($parms['controller'] == 'QuestionCategories' && $parms['action'] == 'index'){ echo 'class="active"';}?>>
-                        <a href="<?php echo $this->Html->url(array('controller' => 'QuestionCategories', 'action' => 'index')) ?>/" class="main-uc">Question Bank</a>
+                        <a href="<?php echo $this->Html->url(array('controller' => 'QuestionCategories', 'action' => 'index')) ?>/" class="main-uc">Resources</a>
                     </li>
                     <li <?php if($parms['controller'] == 'content' && $parms['action'] == 'blog'){ echo 'class="active"';}?>>
                         <a class="main-uc"  href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'blog')) ?>">Blog</a>
                     </li>
-                </ul>
+                    <li <?php if($parms['controller'] == 'content' && $parms['action'] == 'event_list'){ echo 'class="active"';}?>>
+                        <a class="main-uc"  href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'event_list')) ?>/">Events</a>
+                    </li>                </ul>
 
                 <ul>
                      <?php if ($this->Session->read('Auth.User')) {?>
