@@ -68,7 +68,7 @@
 			</div>
 		</div>
         <div class="fr rt_head">
-            <div class="con_social fl">
+            <div class="con_social fl" style = "padding-top : 5px;">
                 <ul>
                     <?php /*<li>
                         <a href="<?php echo Configure::read('COMPANY.FACEBOOK'); ?>" class="fb"></a>
@@ -77,12 +77,18 @@
                         <a href="<?php echo Configure::read('COMPANY.GPLUS'); ?>" class="gplus"></a>
                         <a href="<?php echo Configure::read('COMPANY.YOUTUBE'); ?>" class="ytube"></a>
                     </li> */ ?>
-                    <li><span class="top_ph_num"><?php echo Configure::read('COMPANY.TOLLFREE'); ?></span></li>
+
                      <?php if ($this->Session->read('Auth.User')) {?>
+                       <li><span class="top_ph_num"><?php echo Configure::read('COMPANY.TOLLFREE'); ?></span></li>
                         <li style="padding-left: 17px;" class="take-to-top">Welcome <?php $user_arr = @explode(' ',$user['name']); echo $user_arr[0]; ?>!</li>
                     <?php }else{?>
-                        <li class="info_li">
+                        <li class="info_li" style='padding-right:20px'>
+                          <div class="row">
+                            <span class="top_ph_num"><?php echo Configure::read('COMPANY.TOLLFREE'); ?></span>
+                          </div>
+                          <div class="row" style='height:30px'>
                             <a href="mailto:<?php echo Configure::read('COMPANY.SUPPORT_EMAIL'); ?>"><?php echo Configure::read('COMPANY.SUPPORT_EMAIL'); ?></a>
+                          </div>
                         </li>
                     <?php }?>
                     <?php if ($this->Session->read('Auth.User.id') > 0) {?>
@@ -144,7 +150,7 @@
                             <div class="row">
                               <a href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'sign_up')) ?>">Sign Up</a>
                             </div>
-                            <div class="row">
+                            <div class="row" style="margin-top:8px">
                               <a style="padding:5px 3px;" href="<?php echo $this->Html->url(array('controller' => 'users', 'action' => 'login')) ?>">Sign In</a>
                             </div>
                           </strong>
