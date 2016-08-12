@@ -25,6 +25,19 @@
             <a id="search-btn" class="src-button anchor">Search<img src="<?php echo HTTP_ROOT; ?>images/arrow.png" alt="Arrow" width="12" height="18"/></a>
         </form>
         <?php echo $this->Form->end(); ?>
+        <style>
+          #HomeHomeForm{
+            width: 80%;
+          }
+          #HomeHomeForm > select{
+            width: 25%;
+            margin-right: 1%;
+            margin-left : 1%;
+          }
+          #HomeHomeForm > a{
+            display: inline-block;
+          }
+        </style>
     </div>
 </div>
 <?php if (is_array($middleads) && count($middleads) > 0) { ?>
