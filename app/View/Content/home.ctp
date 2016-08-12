@@ -53,8 +53,8 @@
     </div>
     <?php if (is_array($middleads) && count($middleads) > 0) { ?>
         <div class="home_user_bus">
-            <div class="wrapper home-page-ad-md-blk" style="background-color: rgba(55, 55, 55, 0.769);">
-              <div class='marquee' id='middleadsmarquee1' style="padding:2px 30px 2px 30px;">
+            <div class="wrapper home-page-ad-md-blk" style="background-color: rgba(55, 55, 55, 0.769); padding:5px 30px 5px 30px;">
+              <div class='marquee' id='middleadsmarquee1' style="">
                 <?php foreach ($middleads as $key => $addata) { ?>
                     <div class="home-page-ad-md">
                         <a class="" href="<?php echo $addata['Advertisement']['url'] != "" ? $addata['Advertisement']['url'] : "javascript://"; ?>" target="_blank">
