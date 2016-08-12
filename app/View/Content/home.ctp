@@ -53,8 +53,8 @@
     </div>
     <?php if (is_array($middleads) && count($middleads) > 0) { ?>
         <div class="home_user_bus">
-            <div class="wrapper home-page-ad-md-blk">
-              <div class='marquee' id='middleadsmarquee1' style="background-color:rgba(55, 55, 55, 0.769);padding:5px;">
+            <div class="wrapper home-page-ad-md-blk" style="background-color: rgba(55, 55, 55, 0.769);">
+              <div class='marquee' id='middleadsmarquee1' style="padding:2px 30px 2px 30px;">
                 <?php foreach ($middleads as $key => $addata) { ?>
                     <div class="home-page-ad-md">
                         <a class="" href="<?php echo $addata['Advertisement']['url'] != "" ? $addata['Advertisement']['url'] : "javascript://"; ?>" target="_blank">
@@ -194,16 +194,6 @@
     $(document).ready(function () {
       marqueeInit({
         uniqueid: 'middleadsmarquee1',
-        style: {
-        },
-        inc: 5, //speed - pixel increment for each iteration of this marquee's movement
-        mouse: 'pause', //mouseover behavior ('pause' 'cursor driven' or false)
-        persist: true
-      });
-      marqueeInit({
-        uniqueid: 'middleadsmarquee2',
-        style: {
-        },
         inc: 5, //speed - pixel increment for each iteration of this marquee's movement
         mouse: 'pause', //mouseover behavior ('pause' 'cursor driven' or false)
         persist: true
