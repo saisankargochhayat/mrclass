@@ -4,7 +4,7 @@
 <style type="text/css">
 </style>
 <div class="home_banner">
-    <div class="scroll_btm_bnr"><a class="scroll_btm" href="javascript:void(0);">&nbsp;</a></div>
+    <div class="scroll_btm_bnr" style="bottom:35px;"><a class="scroll_btm" href="javascript:void(0);">&nbsp;</a></div>
     <?php /*<div class="bnr_effect"><img src="<?php echo HTTP_ROOT; ?>images/girl.png" class="bounceInDown animated-one" alt="" /></div> */ ?>
     <div class="blink-discount home-discount-tag">
         <img style="height:75%;" src="<?php echo HTTP_ROOT; ?>img/discount-logo.png"/>
@@ -39,24 +39,37 @@
           }
         </style>
     </div>
-</div>
-<?php if (is_array($middleads) && count($middleads) > 0) { ?>
-    <div class="home_user_bus">
-        <div class="wrapper home-page-ad-md-blk">
-          <div class='marquee' id='middleadsmarquee'>
-            <?php foreach ($middleads as $key => $addata) { ?>
-                <div class="home-page-ad-md">
-                    <a class="" href="<?php echo $addata['Advertisement']['url'] != "" ? $addata['Advertisement']['url'] : "javascript://"; ?>" target="_blank">
-                        <img src="<?php echo $this->Format->ad_image($addata['Advertisement'], 350, 200, 0); ?>" alt="" style=""/>
-                    </a>
-
-                </div>
-            <?php } ?>
-          </div>
-            <div class="cb"></div>
+    <div class="cat_frm" style="margin-top:0px;">
+        <div class="fl txt_lst" style="color:#dddddd;text-shadow:0.5px 0.866px 3px rgba(2, 2, 2, 0.53); font-size:32px; padding-bottom:5px;">Looking for something else?</div>
+        <div class="fl" style="margin-top:7px;">
+            <?php echo $this->Form->create(false,array('controller'=>'content','action' => 'write_to_admin'));?>
+            <?php echo $this->Form->input('message',array('placeholder'=>'Write to us...','div'=>false,'label'=>false));?>
+            <input type="button"  value="Submit" onclick="submitQuery();" id="send_admin"/>
+            <?php echo $this->Form->end();?>
         </div>
+        <div class="fl" id="success_text" style="margin-top:12px;font-size:20px;color:#00A550;">
+        </div>
+        <div class="cb"></div>
     </div>
-<?php } ?>
+    <?php if (is_array($middleads) && count($middleads) > 0) { ?>
+        <div class="home_user_bus">
+            <div class="wrapper home-page-ad-md-blk">
+              <div class='marquee' id='middleadsmarquee1'>
+                <?php foreach ($middleads as $key => $addata) { ?>
+                    <div class="home-page-ad-md">
+                        <a class="" href="<?php echo $addata['Advertisement']['url'] != "" ? $addata['Advertisement']['url'] : "javascript://"; ?>" target="_blank">
+                            <img src="<?php echo $this->Format->ad_image($addata['Advertisement'], 350, 200, 0); ?>" alt="" style=""/>
+                        </a>
+
+                    </div>
+                <?php } ?>
+              </div>
+                <div class="cb"></div>
+            </div>
+        </div>
+    <?php } ?>
+</div>
+
 <?php /*<div class="home_user_bus">
     <div class="wrapper">
         <h2>How It Works</h2>
@@ -180,7 +193,15 @@
 <script type="text/javascript">
     $(document).ready(function () {
       marqueeInit({
-        uniqueid: 'middleadsmarquee',
+        uniqueid: 'middleadsmarquee1',
+        style: {
+        },
+        inc: 5, //speed - pixel increment for each iteration of this marquee's movement
+        mouse: 'pause', //mouseover behavior ('pause' 'cursor driven' or false)
+        persist: true
+      });
+      marqueeInit({
+        uniqueid: 'middleadsmarquee2',
         style: {
         },
         inc: 5, //speed - pixel increment for each iteration of this marquee's movement
