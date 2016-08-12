@@ -6,7 +6,7 @@
 <div class="home_banner">
     <div class="scroll_btm_bnr" style="bottom:35px;"><a class="scroll_btm" href="javascript:void(0);">&nbsp;</a></div>
     <?php /*<div class="bnr_effect"><img src="<?php echo HTTP_ROOT; ?>images/girl.png" class="bounceInDown animated-one" alt="" /></div> */ ?>
-    <div class="blink-discount home-discount-tag">
+    <div class="blink-discount home-discount-tag" style="top:-40px;">
         <img style="height:75%;" src="<?php echo HTTP_ROOT; ?>img/discount-logo.png"/>
     </div>
     <div class="wrapper">
