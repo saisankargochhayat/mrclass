@@ -35,8 +35,6 @@ s0.parentNode.insertBefore(s1,s0);
             </li>
             <li <?php if($parms['controller'] == 'content' && $parms['action'] == 'careers'){ echo 'class="active"';}?>>
                 <a href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'careers')) ?>">Career</a></li>
-            <li <?php if($parms['controller'] == 'content' && $parms['action'] == 'press'){ echo 'class="active"';}?>>
-                <a href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'press')) ?>">Press</a></li>
            <li <?php if($parms['controller'] == 'content' && $parms['action'] == 'feedback'){ echo 'class="active"';}?>>
                 <a href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'feedback')) ?>">Feedback</a></li>
             <li <?php if($parms['controller'] == 'content' && $parms['action'] == 'contact_us'){ echo 'class="active"';}?>>
