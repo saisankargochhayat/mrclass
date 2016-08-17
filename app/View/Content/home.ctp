@@ -40,14 +40,14 @@
         </style>
     </div>
     <div class="cat_frm" style="margin-top:0px;">
-        <div class="fl txt_lst" style="color:#dddddd;text-shadow:0.5px 0.866px 3px rgba(2, 2, 2, 0.53); font-size:32px; padding-bottom:5px;">Looking for something else?</div>
+        <div class="fl txt_lst" style="color:#dddddd;text-shadow:0.5px 0.866px 3px rgba(2, 2, 2, 0.53); font-size:25px; padding-bottom:5px;">Looking for something else?</div>
         <div class="fl" style="margin-top:7px;">
             <?php echo $this->Form->create(false,array('controller'=>'content','action' => 'write_to_admin'));?>
             <?php echo $this->Form->input('message',array('placeholder'=>'Write to us...','div'=>false,'label'=>false));?>
             <input type="button"  value="Submit" onclick="submitQuery();" id="send_admin"/>
             <?php echo $this->Form->end();?>
         </div>
-        <div class="fl" id="success_text" style="margin-top:12px;font-size:20px;color:#00A550;">
+        <div class="fl" id="success_text" style="margin-top:12px;font-size:10px;color:#00A550;">
         </div>
         <div class="cb"></div>
     </div>
@@ -159,18 +159,18 @@
                 </div>
             </div>
         </div>
-        <div class="cat_frm">
+        <!-- <div class="cat_frm">
             <div class="fl txt_lst">Looking for something else?</div>
             <div class="fl">
-                <?php echo $this->Form->create(false,array('controller'=>'content','action' => 'write_to_admin'));?>
-                <?php echo $this->Form->input('message',array('placeholder'=>'Write to us...','div'=>false,'label'=>false));?>
+                <?php //echo $this->Form->create(false,array('controller'=>'content','action' => 'write_to_admin'));?>
+                <?php //echo $this->Form->input('message',array('placeholder'=>'Write to us...','div'=>false,'label'=>false));?>
                 <input type="button"  value="Submit" onclick="submitQuery();" id="send_admin"/>
-                <?php echo $this->Form->end();?>
+                <?php //echo $this->Form->end();?>
             </div>
             <div class="fl" id="success_text" style="margin-top:12px;font-size:20px;color:#00A550;">
             </div>
             <div class="cb"></div>
-        </div>
+        </div> -->
         <?php if (is_array($ads) && count($ads) > 0) { ?>
             <?php foreach ($ads as $key => $addata) { ?>
                 <div class="home-page-ad adblocks ">
