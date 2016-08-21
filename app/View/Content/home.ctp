@@ -59,7 +59,7 @@
                 <?php foreach ($middleads as $key => $addata) { ?>
                     <div class="home-page-ad-md">
                         <a class="" href="<?php echo $addata['Advertisement']['url'] != "" ? $addata['Advertisement']['url'] : "javascript://"; ?>" target="_blank">
-                            <img src="<?php echo $this->Format->ad_image($addata['Advertisement'], 350, 200, 0); ?>" alt="" style=""/>
+                            <img src="<?php echo $this->Format->ad_image($addata['Advertisement'], 300, 150, 0); ?>" alt="" style=""/>
                         </a>
 
                     </div>
