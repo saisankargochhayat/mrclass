@@ -108,24 +108,24 @@
         position:relative;
     }
     .cmn_static_mc .wrapper h1{text-align: center;}
-    
+
     /*.ar-m-125{margin-left:125px;}
     .a-m-32{margin-left:-32px;}*/
     #profile_1 .arrow-up{left:25%;}
     #profile_3 .arrow-up{left:75%;}
-	
+
 	@media only screen and (max-width:1030px){
 		/*.full-wd{width: 69%;}*/
 	}
-	
+
 	@media only screen and (max-width:850px){
 		/*.full-wd{width: 77%;}*/
 	}
-	
+
 	@media only screen and (max-width:700px){
 		/*.full-wd{width: 88%;}*/
 	}
-	
+
 	@media only screen and (max-width:630px){
 		/*.full-wd{left:0;margin:0 auto !important;}*/
 		.team-members{margin: 0 5px;}
@@ -136,16 +136,16 @@
                 /*.a-m-32{margin-left: -23px !important;}
                 .ar-m-125{margin-left:102px !important;}*/
 	}
-	
+
 	@media only screen and (max-width:500px){
 		/*.full-wd{width:96%}*/
 	}
-	
+
 	@media only screen and (max-width:414px){
 		.cmn_static_mc .wrapper{padding: 30px 3px 40px;}
 		.team-members img{width:85px;height:85px;}
 		.full-wd{width:100%;left:0;margin-left:0}
-		
+
 	}
 </style>
 
@@ -154,19 +154,19 @@
     <div class="cb20"></div>
     <div class="full-wd">
         <div class="fl1 team-members pro-img1" onclick="showProfile1();">
-            <img class="attachment-thumbnail wp-post-image" width="137" height="134" alt="Sujeet Kumar" src="<?php echo HTTP_ROOT; ?>images/form/sujeet.jpg" />
+            <img class="attachment-thumbnail wp-post-image" width="137" height="134" alt="Sujeet Kumar" src="images/form/sujeet.jpg" />
             <h4>Sujeet Kumar</h4>
             <div class="arrow-up white"></div>
         </div>
 
         <div class="fl1 team-members pro-img2" onclick="showProfile2();">
-            <img class="attachment-thumbnail wp-post-image" width="137" height="134" alt="Ankeet A Panda" src="<?php echo HTTP_ROOT; ?>images/form/ankeet.jpg" />
+            <img class="attachment-thumbnail wp-post-image" width="137" height="134" alt="Ankeet A Panda" src="images/form/ankeet.jpg" />
             <h4>Ankeet A Panda</h4>
             <div class="arrow-up white"></div>
         </div>
 
         <div class="fl1 team-members pro-img3" onclick="showProfile3();">
-            <img class="attachment-thumbnail wp-post-image" width="137" height="134" alt="Bhabagrahi Das" src="<?php echo HTTP_ROOT; ?>images/form/bdas.jpg" />
+            <img class="attachment-thumbnail wp-post-image" width="137" height="134" alt="Bhabagrahi Das" src="images/form/bdas.jpg" />
             <h4>Bhabagrahi Das</h4>
             <div class="arrow-up white"></div>
         </div>
@@ -174,7 +174,7 @@
     </div>
 
     <div id="profile_1" class="profile">
-        
+
         <p class="in-text"><strong>Sujeet Kumar</strong></p>
         <p><em>Chief Mentor</em></p>
         <p style="text-align: justify;">Sujeet Kumar is a lawyer (of the Orissa High Court), entrepreneur, investor and an avid start-up enthusiast. He founded a boutique consulting firm, LexMantra (<a href="http://www.lexmantra.net" target="_blank">www.lexmantra.net</a>); a full-service business and legal consulting firm, providing a range of legal &amp; business advisory solutions for businesses of all sizes, particularly for start-ups. Sujeet also has a sustained interest in public affairs regularly interacting with the regulators, and has been involved in policy formulation in the state of Odisha. He was a Member, Drafting Committee of the State Youth Policy and is the past chair of CII-Young Indians Odisha chapter.</p>
@@ -188,8 +188,8 @@
     </div>
     <div class="cb"></div>
     <div id="profile_2" class="profile">
-        
-		
+
+
         <p class="in-text"><strong>Ankeet Ansooman Panda</strong></p>
 
         <p><em>Head (Product &amp; Strategy)</em></p>
