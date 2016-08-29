@@ -160,7 +160,7 @@
         </div>
 
         <div class="fl1 team-members pro-img2" onclick="showProfile2();">
-            <img class="attachment-thumbnail wp-post-image" width="137" height="134" alt="Bijayalaxmi Mohanty" src="images/form/bijaylaxmi.jpg" />
+            <img class="attachment-thumbnail wp-post-image" width="137" height="134" alt="Bijayalaxmi Mohanty" src="images/form/bijayalaxmi.jpg" />
             <h4>Bijayalaxmi Mohanty</h4>
             <div class="arrow-up white"></div>
         </div>
