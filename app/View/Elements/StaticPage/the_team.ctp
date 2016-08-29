@@ -160,8 +160,8 @@
         </div>
 
         <div class="fl1 team-members pro-img2" onclick="showProfile2();">
-            <img class="attachment-thumbnail wp-post-image" width="137" height="134" alt="Ankeet A Panda" src="images/form/ankeet.jpg" />
-            <h4>Ankeet A Panda</h4>
+            <img class="attachment-thumbnail wp-post-image" width="137" height="134" alt="Bijayalaxmi Mohanty" src="images/form/bijaylaxmi.jpg" />
+            <h4>Bijayalaxmi Mohanty</h4>
             <div class="arrow-up white"></div>
         </div>
 
@@ -190,13 +190,13 @@
     <div id="profile_2" class="profile">
 
 
-        <p class="in-text"><strong>Ankeet Ansooman Panda</strong></p>
+        <p class="in-text"><strong>Bijayalaxmi Mohanty</strong></p>
 
-        <p><em>Head (Product &amp; Strategy)</em></p>
+        <p><em>Head (Operations)</em></p>
 
-        <p style="text-align: justify;">With interests in Strategy, Product &amp; Business Development, Social Media, Operations and Finance, Ankeet really brings a lot to the table apart from his fresh-n-bold ideas &amp; approach. With a habit of giving equal importance to the smallest of things, Ankeet heads our Product &amp; Strategy team and has a knack of getting the work done at any cost.</p>
+        <p style="text-align: justify;">Bijayalaxmi brings experiences ranging from management and academic consultancy, strategy & business development to operations. She heads MrClass’s Operations team and has a knack of getting the work done at any cost. A go-getter, she has been playing a monumental role in streamlining the operations and developing various initiatives at the start-up.</p>
 
-        <p style="text-align: justify;">Ankeet also advises a number of start-up entrepreneurs on a range of business strategies. After office hours&hellip; travelling, swimming, gaming &amp; aviculture occupy most of his time. He has an MBA degree from Faculty of Management, Sri Sri University and a B.Tech degree from Institute of Technical Education &amp; Research (ITER), Bhubaneswar. &nbsp;</p>
+        <p style="text-align: justify;">Bijayalaxmi completed her B.Com & M.com from Utkal University.</p>
         <p class="con_social">
             <a href="https://www.facebook.com/ankeetpanda" class="fb" target="_blank"></a>
             <a href="https://in.linkedin.com/pub/ankeet-panda/59/53b/a80" class="lin" target="_blank"></a>
