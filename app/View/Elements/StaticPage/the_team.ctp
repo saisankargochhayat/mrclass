@@ -197,11 +197,6 @@
         <p style="text-align: justify;">Bijayalaxmi brings experiences ranging from management and academic consultancy, strategy & business development to operations. She heads MrClass’s Operations team and has a knack of getting the work done at any cost. A go-getter, she has been playing a monumental role in streamlining the operations and developing various initiatives at the start-up.</p>
 
         <p style="text-align: justify;">Bijayalaxmi completed her B.Com & M.com from Utkal University.</p>
-        <p class="con_social">
-            <a href="https://www.facebook.com/ankeetpanda" class="fb" target="_blank"></a>
-            <a href="https://in.linkedin.com/pub/ankeet-panda/59/53b/a80" class="lin" target="_blank"></a>
-            <a href="https://twitter.com/ankeetpanda" class="tweet" target="_blank"></a>
-        </p>
         <p>&nbsp;</p>
     </div>
     <div class="cb"></div>
