@@ -36,10 +36,7 @@
                                 <?php } ?>
                             <?php } ?>
                             <li>
-                                <a data-href="<?php echo $this->Html->url('/businesses/group_booking/')?>" onclick="event.preventDefault();" class="anchor ajax">
-                                   <input class="cmn_btn_n" value="Group Booking" type="button" style="font-size:14px;padding:5px 34px;"/>
-                                </a>
-                                <?php /*<a data-href="<?php echo $this->Html->url('/businesses/group_booking/')?>" onclick="event.preventDefault();" class="anchor ajax cmn_btn_n ">Group Booking</a>*/?>
+                              <a class="main-uc cmn_btn_n"  style="font-size:14px;padding:5px 34px; width:120%;" href="<?php echo HTTP_ROOT.'search/#cid=47'?>">HOSTELS</a>
                             </li>
                             <li>
                               <a class="main-uc cmn_btn_n"  style="font-size:14px;padding:5px 34px; width:120%;" href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'event_list')) ?>/">EVENTS</a>
@@ -58,6 +55,9 @@
                     </li>
                     <li >
                         <a class="main-uc"  href="<?php echo HTTP_ROOT.'search/#cid=37' ?>">Home Tutor</a>
+                    </li>
+                    <li >
+                        <a class="main-uc"  href="<?php echo HTTP_ROOT.'search/#cid=47' ?>">Hostels</a>
                     </li>
                 </ul>
             </div>
@@ -201,7 +201,9 @@
                                     <li><a href="<?php echo HTTP_ROOT.'search/#cid='.$key ?>"><?php echo $cat; ?></a></li>
                                 <?php } ?>
                             <?php } ?>
-
+                            <li>
+                              <a class="main-uc cmn_btn_n"  style="font-size:14px;padding:5px 30px; width:80%" href="<?php echo HTTP_ROOT.'search/#cid=47' ?>">HOSTELS</a>
+                            </li>
                             <li>
                               <a class="main-uc cmn_btn_n"  style="font-size:14px;padding:5px 30px; width:80%" href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'event_list')) ?>/">EVENTS</a>
                             </li>
@@ -218,6 +220,9 @@
                     </li>
                     <li >
                         <a class="main-uc"  href="<?php echo HTTP_ROOT.'search/#cid=37' ?>">Home Tutor</a>
+                    </li>
+                    <li >
+                        <a class="main-uc"  href="<?php echo HTTP_ROOT.'search/#cid=47' ?>">Hostels</a>
                     </li>
                    </ul>
 
