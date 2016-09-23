@@ -12,7 +12,7 @@
     <div class="wrapper">
         <div class="ultimate">
 
-            <h2>Discover the best classes, courses, tutors and hobbies in Bhubaneswar and Cuttack.</h2>
+            <h2>Discover the best classes, courses, tutors ,hostels and hobbies in Bhubaneswar and Cuttack.</h2>
         </div>
     </div>
     <div class="banner_form">
