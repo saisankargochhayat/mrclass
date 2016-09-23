@@ -42,7 +42,7 @@ s0.parentNode.insertBefore(s1,s0);
             <li <?php if($parms['controller'] == 'content' && $parms['action'] == 'looking_for_tutor'){ echo 'class="active"';}?>>
                 <a href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'looking_for_tutor')) ?>">Looking for a Tutor</a></li>
             <li>
-                <a href="#" target="_blank">Advertise with Us</a></li>
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLSfYdaM4NniKwIMSkuE4zRviE0PLIV4Ti1IBOnSmBia5v8KSJg/viewform" target="_blank">Advertise with Us</a></li>
         </ul>
         <?php /*<div class="copy_right booking_anchr cmn_btn_grp">
             <a data-href="<?php echo $this->Html->url('/businesses/group_booking/')?>" onclick="event.preventDefault();" class="anchor ajax cmn_btn_n chng_sub">Group Booking</a>
