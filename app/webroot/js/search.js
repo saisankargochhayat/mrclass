@@ -8,6 +8,9 @@ Search = {
     place: [],
     time: [],
     distance: '',
+    foodingtype : '',
+    sharingtype : '',
+    status : '',
     openon: [],
     age_gr: [0, 0],
     gender: '',
@@ -36,13 +39,13 @@ Search = {
         });
         function autocomplete_url(){return HTTP_ROOT + "content/auto_complete_keyword?cid="+$("#BusinessCategoryId").val();}
         $("#keyword").autocomplete({serviceUrl: autocomplete_url,minLength: 1,onSelect: function(suggestion) {$("#keyword").val(suggestion.data);setTimeout(function(){$('#classsearchicon').trigger('click');},200);}});
-        
+
         $('#togglemap').click(function(){
-            $('#map').height() > 200 
+            $('#map').height() > 200
             ? $('#map').animate({height:"75px"},500,function(){Search.resize_map('done');$('.togglemapicon').removeClass('fa-compress').addClass('fa-expand').attr('title','Expand Map');$('.text-f-map').show();infowindow.close();})
-            : $('#map').animate({height:"400px"},500,function(){Search.resize_map('done');$('.togglemapicon').removeClass('fa-expand').addClass('fa-compress').attr('title','Reduce Map');$('.text-f-map').hide();var zoomOverride=map.getZoom();if(zoomOverride<9){zoomOverride=9;}map.setZoom(zoomOverride);}); 
+            : $('#map').animate({height:"400px"},500,function(){Search.resize_map('done');$('.togglemapicon').removeClass('fa-expand').addClass('fa-compress').attr('title','Reduce Map');$('.text-f-map').hide();var zoomOverride=map.getZoom();if(zoomOverride<9){zoomOverride=9;}map.setZoom(zoomOverride);});
         });
-        
+
         $(document).on('click','.jcarousel-control-prev',function() {$(this).closest('.jcarousel-wrapper').find('.jcarousel').jcarousel('scroll', '-=1');});
         $(document).on('click','.jcarousel-control-next',function() {$(this).closest('.jcarousel-wrapper').find('.jcarousel').jcarousel('scroll', '+=1');});
         this.reset('value');
@@ -77,14 +80,14 @@ Search = {
                 if($('#time_start').val()!='' && $('#time_to').val()!=''){
                     $of_start = $('#time_start').val().replace(/[0-9]+/,'');
                     $t_start = parseInt($('#time_start').val().replace(/[a-zA-Z]+/,''));
-                    $t_start = $t_start == 12 && $of_start == 'am' ? 0 : ($of_start == 'am' ? $t_start : 12+parseInt($t_start == 12 && $of_start == 'pm' ? 0 : $t_start)); 
-                    
+                    $t_start = $t_start == 12 && $of_start == 'am' ? 0 : ($of_start == 'am' ? $t_start : 12+parseInt($t_start == 12 && $of_start == 'pm' ? 0 : $t_start));
+
                     $of_to = $('#time_to').val().replace(/[0-9]+/,'');
                     $t_to = $('#time_to').val().replace(/[a-zA-Z]+/,'');
-                    $t_to = $t_to == 12 && $of_to == 'am' ? 0 : ($of_to == 'am' ? $t_to : 12+parseInt($t_to == 12 && $of_to == 'pm' ? 0 : $t_to)); 
-                    
+                    $t_to = $t_to == 12 && $of_to == 'am' ? 0 : ($of_to == 'am' ? $t_to : 12+parseInt($t_to == 12 && $of_to == 'pm' ? 0 : $t_to));
+
                     var flag = (parseInt($t_start) < parseInt($t_to));
-                    
+
                     if(!flag){
                         alert($id == 'time_start' ? "Start time should be less than end time" : "End time should be more than start time","error");
                         General.hideAlert();
@@ -123,7 +126,7 @@ Search = {
             if ($('#content_loader').is(':visible')) {
                 return false;
             }
-            
+
             $(".viewblockstoggle").removeClass('active');
             $(this).addClass('active');
             $(".viewblocks").hide();
@@ -168,6 +171,7 @@ Search = {
         $('#content_loader').show();
         var hash = typeof window.location.hash != 'undefined' ? window.location.hash.replace('#', '') : "";
         Search.set_hash();
+        console.log(Search);
         var params = {
             view: Search.view,
             cid: Search.cid,
@@ -179,6 +183,9 @@ Search = {
             place: Search.place,
             time: Search.time,
             distance: Search.distance,
+            foodingtype:Search.foodingtype,
+            sharingtype:Search.sharingtype,
+            status:Search.status,
             openon: Search.openon,
             age_gr: Search.age_gr,
             gender: Search.gender,
@@ -226,13 +233,13 @@ Search = {
                     var distance = params.distance > 0 ? params.distance : max_distance;
                     $('#distance_slider').slider({max: max_distance, value: distance});
                     $('#distance').html(Math.round(distance)+' Km');
-                    
+
                     $price = params.price.split('-')
                     var min_price_v1 = $price[0] || min_price;
                     var max_price_v1 = $price[1] || max_price;
                     $('#price_slider').slider('option', 'min', Math.round(min_price));
                     $('#price_slider').slider('option', 'max', Math.round(max_price));
-                    
+
                     $("#price_slider").slider('option', 'values', [Math.round(min_price_v1), Math.round(max_price_v1)]);
                     //$("#price_slider").slider('values',1,max_price);
                     //$("#price_slider").slider("refresh");
@@ -253,10 +260,10 @@ Search = {
                         return (a.v > b.v) ? 1 : ((a.v < b.v) ? -1 : 0);
                     });
                     //if(a.v > b.v){ return 1}if(a.v < b.v){ return -1}return 0;
-                    
+
                     $el = $('#biz_facilities').find('.jspPane').length>0?$('#biz_facilities').find('.jspPane'):$('#biz_facilities');
                     $el.html('');
-                    
+
                     $.each(tmp, function(key1, val1) {
                         var key = val1.k;
                         var val = val1.v;
@@ -326,7 +333,7 @@ Search = {
                         $('#filterblocks_place').find('input[type=checkbox]:checked').each(function() {
                             Search.place.push($(this).val());
                         });
-                        //Search.place = $val[1]; 
+                        //Search.place = $val[1];
                         break;
                     case 'ctype' :
                         if ($val[1] != '') {
@@ -339,11 +346,11 @@ Search = {
                         $('#filterblocks_ctype').find('input[type=checkbox]:checked').each(function() {
                             Search.ctype.push($(this).val());
                         });
-                        //Search.place = $val[1]; 
+                        //Search.place = $val[1];
                         break;
                     case 'time' :
                         //console.log($val[1]);
-                        //Search.time = $val[1]; 
+                        //Search.time = $val[1];
                         break;
                     case 'time_start' :
                         $('#time_start').val($val[1]);
@@ -357,7 +364,7 @@ Search = {
                         Search.distance = $val[1];
                         break;
                     case 'openon' :
-                        //Search.openon = $val[1]; 
+                        //Search.openon = $val[1];
                         Search.openon = [];
                         if ($val[1] != '') {
                             def_selected = $val[1].split('-');
@@ -368,7 +375,7 @@ Search = {
                         }
                         /*$('#filterblocks_openon').find('input[type=checkbox]:checked').each(function() {});*/
                         break;
-                        //case 'age_gr' : 
+                        //case 'age_gr' :
                     case 'age_min' :
                         $('#age_min').val($val[1]);
                         Search.age_gr[0] = $val[1];
@@ -398,7 +405,7 @@ Search = {
                             })
                         }
                         $('#filterblocks_facilities').find('input[type=checkbox]:checked').each(function(){
-                            Search.facilities.push($(this).val()); 
+                            Search.facilities.push($(this).val());
                         });
                         break;
                 }
@@ -449,10 +456,12 @@ Search = {
         var _temp = new Array();
         var found = false;
         var m_arr = ['place', 'facilities', 'openon', 'ctype'];
-        
+
         //console.log($.inArray('ctype=private',$hash));
+        console.log($hash);
         $.each($hash, function(key, val) {
             $val = val.split('=');
+            console.log($val);
             if ($val[0] !== 'page' && $val[0] != '') {
                 if ($val[0] === opt) {
                     found = true;
@@ -469,7 +478,7 @@ Search = {
                     new_hash.push(val);
                 }
             }
-        
+
         });
         if($.inArray('ctype=private',new_hash) > -1 || $.inArray('ctype=private-group',new_hash) > -1){}else{
             //console.log($hash);
@@ -481,7 +490,7 @@ Search = {
         if (!found && data != '') {
             new_hash.push(opt + "=" + data);
         }
-        
+
         //console.log(new_hash)
         Search.page = 1;
         //new_hash.push("page=1");
@@ -498,7 +507,7 @@ Search = {
             markers = [];
             cluster = [];
             // Create a new LatLngBounds object
-            
+
             markerBounds = typeof google.maps.LatLngBounds != 'undefined' ? new google.maps.LatLngBounds() : '';
             //console.log(markerClusterer)
             if (typeof markerClusterer == 'object' && $.trim(markerClusterer) !='') {
@@ -506,7 +515,7 @@ Search = {
                 //markerClusterer.redraw();
             }
         }
-        
+
         Search.reload = 'No';
         //deleteMarkers();
         //setMapOnAll(null);
@@ -545,7 +554,7 @@ Search = {
                         }
                     }
                 })(marker));
-                /*google.maps.event.addListener(marker, 'mouseout', (function(marker,content,infowindow){ 
+                /*google.maps.event.addListener(marker, 'mouseout', (function(marker,content,infowindow){
                     return function() {
                        infowindow.close();
                     };
@@ -559,7 +568,7 @@ Search = {
             if(typeof marker == 'undefined' || marker == ''){ return false;}
             // Then you just call the fitBounds method and the Maps widget does all rest.
             //alert(setcluster)
-            
+
             if(setcluster!='reset'){
                 if(markerBounds) map.fitBounds(markerBounds);
                 /*restrict max zoom level*/
@@ -574,7 +583,7 @@ Search = {
             google.maps.event.addListener(markerClusterer, "mouseover", function(c) {
                 $(c.clusterIcon_.div_).effect('bounce', {times: 2}, 'slow');
             });
-       
+
         google.maps.event.addListener(infowindow, 'domready', function() {
 
             // Reference to the DIV that wraps the bottom of infowindow
@@ -688,12 +697,12 @@ Search = {
         }
         map.setZoom(9);
         map.setCenter(new google.maps.LatLng(20.3156929, 85.8547923));
-        $('#map').height() > 200 ? 
+        $('#map').height() > 200 ?
             $('#map').animate({height:"150px"},500,function(){
                 Search.resize_map('done');
                 $('.togglemapicon').removeClass('fa-compress').addClass('fa-expand').attr('title','Expand Map');
                 $('.text-f-map').show();
-                infowindow.close(); 
+                infowindow.close();
             }):"";
     },
     resetClusters:function(mode){

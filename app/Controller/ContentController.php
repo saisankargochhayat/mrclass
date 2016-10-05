@@ -340,7 +340,8 @@ class ContentController extends AppController {
         $ctype = isset($data['ctype']) ? ($data['ctype']) : '';
         $place = isset($data['place']) ? ($data['place']) : '';
         $keyword = isset($data['keyword']) ? str_replace("+", " ", trim($data['keyword'])) : '';
-
+        $fooding = isset($data['foodingtype']) ? $data['foodingtype'] : '';
+        CakeLog::write('debug', $fooding);
         $lc = isset($data['lc']) ? trim($data['lc']) : '';
         #$lat = $this->Session->read('Auth.User.latitude') != '' ? $this->Session->read('Auth.User.latitude') : ($this->Session->read('user_location.latitude') != '' ? $this->Session->read('user_location.latitude') : "20.2960587");
         #$lng = $this->Session->read('Auth.User.longitude') != '' ? $this->Session->read('Auth.User.longitude') : ($this->Session->read('user_location.longitude') != '' ? $this->Session->read('user_location.longitude') : "85.82453980000003");

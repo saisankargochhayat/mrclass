@@ -17,7 +17,7 @@
       .srh_list_mc .rt_det_mc .top_sch_map .srch_frm_list {left: 10px;}
     }
 </style>
-<?php 
+<?php
 echo $this->Html->script('jquery.autocomplete', array('inline' => false));
 echo $this->Html->script(array('jquery.jcarousel.min','jcarousel.responsive'), array('inline' => false));
 echo $this->Html->script('search', array('inline' => false));
@@ -40,6 +40,36 @@ echo $this->Html->script('markerclusterer', array('inline' => false));
                     <h6><a data-mode="price-low-to-high" class="anchor">Price: Low to High</a></h6>
                     <h6><a data-mode="rate-high-to-low" class="anchor">Ratings: High to Low</a></h6>
                     <h6><a data-mode="rate-low-to-high" class="anchor">Ratings: Low to High</a></h6>
+                </div>
+            </div>
+            <div class="filterblocks" data-ftype="sharingtype">
+                <div class="lft_ttl_cnt"><h3>Number of sharing<span class="toggle-arrow uparrow"></span></h3></div>
+                <div class="class_type toggle-block">
+                    <div>
+                      <label><input type="radio" name="sharing" id="sharing_single" value="single"/>&nbsp;Single</label>
+                      <label><input type="radio" name="sharing" id="sharing_double" value="double"/>&nbsp;Double</label>
+                      <label><input type="radio" name="sharing" id="sharing_triple" value="triple"/>&nbsp;Triple</label>
+                      <label><input type="radio" name="sharing" id="sharing_more" value="more"/>&nbsp;More</label>
+                    </div>
+                </div>
+            </div>
+            <div class="filterblocks" data-ftype="foodingtype">
+                <div class="lft_ttl_cnt"><h3>Fooding<span class="toggle-arrow uparrow"></span></h3></div>
+                <div class="class_type toggle-block">
+                    <div>
+                      <label><input type="radio" name="fooding" id="fooding_food" value="food"/>&nbsp;Food</label>
+                      <label><input type="radio" name="fooding" id="fooding_nofood" value="nofood"/>&nbsp;No Food</label>
+                    </div>
+                </div>
+            </div>
+            <div class="filterblocks" data-ftype="status">
+                <div class="lft_ttl_cnt"><h3>Status<span class="toggle-arrow uparrow"></span></h3></div>
+                <div class="class_type toggle-block">
+                    <div>
+                      <label><input type="radio" name="status" id="status_furnished" value="furnished"/>&nbsp;Furnished</label><br>
+                      <label><input type="radio" name="status" id="status_semifurnished" value="semifurnished"/>&nbsp;Semi-Furnished</label><br>
+                      <label><input type="radio" name="status" id="status_nonfurnished" value="nonfurnished"/>&nbsp;Non-Furnished</label>
+                    </div>
                 </div>
             </div>
             <div class="filterblocks" id="filterblocks_ctype" data-ftype="ctype">
@@ -70,7 +100,7 @@ echo $this->Html->script('markerclusterer', array('inline' => false));
                                 <?php $time = $i<12 ? ($i==0 ? 12 : $i)."am" : ($i==12 ? $i : $i-12)."pm";?>
                                 <option value="<?php echo $time;?>"><?php echo $time;?></option>
                             <?php }?>
-                            
+
                         </select>
                         <span>To</span>
                         <select id="time_to">
@@ -169,7 +199,7 @@ echo $this->Html->script('markerclusterer', array('inline' => false));
         </div>
 
         <div class="fl rt_det_mc relative">
-            <div id="map"></div>				
+            <div id="map"></div>
             <div class="top_sch_map" >
                 <div class="srch_frm_list">
                     <div class="cent_frm">
@@ -192,7 +222,7 @@ echo $this->Html->script('markerclusterer', array('inline' => false));
             <div class="list_det_cnt searchresultsummary" style="">
                 <?php /* <div class="open-map"><a href="javascript:void(0);" title="Expand Map">&darr;</a></div>
                   <div class="close-map"><a href="javascript:void(0);" title="Minimize Map">&uarr;</a></div> */ ?>
-                <div class="switch_list_icn relative" style="margin-bottom: 0px;">					
+                <div class="switch_list_icn relative" style="margin-bottom: 0px;">
                     <span class="fl" style="font-size:18px; color: #333;" id="search_result_count_message"></span>
                     <span class="text-f-map">Click to expand map</span>
                     <span class="map-x"><a class="anchor togglemap  blink-map" id="togglemap"><i class="fa fa-expand togglemapicon" title="Expand Map"></i></a></span>
@@ -260,7 +290,7 @@ echo $this->Html->script('markerclusterer', array('inline' => false));
                 center: {lat: 20.2960587, lng: 85.82453980000003}
             });
             infowindow = new google.maps.InfoWindow();
-          
+
             $('#map').css('background-image','none');
             google.maps.event.addListener(map,'zoom_changed',function (event) {
                 var czoom = map.getZoom();
@@ -274,8 +304,8 @@ echo $this->Html->script('markerclusterer', array('inline' => false));
                     //Search.set_markers(Search.marks,'reset');
                 }
             });
-       
-                    
+
+
                 <?php if($this->Session->read('user_location.lon') == ''){ ?>
                     // Try HTML5 geolocation.
                     if (navigator.geolocation) {
@@ -355,7 +385,7 @@ echo $this->Html->script('markerclusterer', array('inline' => false));
             }
             );
         }
-        
+
 
         function handleLocationError(browserHasGeolocation, infoWindow, pos) {
             //infoWindow.setPosition(pos);
