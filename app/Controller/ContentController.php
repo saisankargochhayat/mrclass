@@ -340,8 +340,10 @@ class ContentController extends AppController {
         $ctype = isset($data['ctype']) ? ($data['ctype']) : '';
         $place = isset($data['place']) ? ($data['place']) : '';
         $keyword = isset($data['keyword']) ? str_replace("+", " ", trim($data['keyword'])) : '';
-        $fooding = isset($data['foodingtype']) ? $data['foodingtype'] : '';
-        CakeLog::write('debug', $fooding);
+        $foodingtype = isset($data['foodingtype']) ? $data['foodingtype'] : '';
+        $sharingtype = isset($data['sharingtype']) ? $data['sharingtype'] : '';
+        $furnishstatus = isset($data['status']) ? $data['status'] : '';
+        //CakeLog::write('debug', $foodingtype);
         $lc = isset($data['lc']) ? trim($data['lc']) : '';
         #$lat = $this->Session->read('Auth.User.latitude') != '' ? $this->Session->read('Auth.User.latitude') : ($this->Session->read('user_location.latitude') != '' ? $this->Session->read('user_location.latitude') : "20.2960587");
         #$lng = $this->Session->read('Auth.User.longitude') != '' ? $this->Session->read('Auth.User.longitude') : ($this->Session->read('user_location.longitude') != '' ? $this->Session->read('user_location.longitude') : "85.82453980000003");
@@ -371,6 +373,17 @@ class ContentController extends AppController {
         $conditions = array('Business.status' => '1');
         $cntr = 0;
         /* filter conditions */
+        if($cid == 47){
+          if($foodingtype != ''){
+            $conditions['Business.foodingtype'] = $foodingtype;
+          }
+          if($sharingtype != ''){
+            $conditions['Business.sharingtype'] = $sharingtype;
+          }
+          if($furnishstatus != ''){
+            $conditions['Business.furnishstatus'] = $furnishstatus;
+          }
+        }
         if ($cid > 0) {
             //$conditions['Business.category_id'] = $cid;
             $conditions['Business.id'] = $this->Format->get_category_business_ids($cid);

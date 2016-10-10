@@ -53,7 +53,7 @@ echo $this->Html->css(array('jquery.tagit'), array('inline' => false));?>
                     <div class="cb"></div>
                     <div class=" fl half-form-control">
                         <?php echo $this->Form->input('price', array('type' => 'text', 'class' => 'form-control priceOnly', 'placeholder' => 'Min Price', 'div' => false, 'label' => false)); ?>
-                        <div class="cb"></div><span class="fl" id="min_price_error"></span>    
+                        <div class="cb"></div><span class="fl" id="min_price_error"></span>
                     </div>
                     <div class="fl to-diff">to</div>
                     <div class=" fl half-form-control">
@@ -69,7 +69,7 @@ echo $this->Html->css(array('jquery.tagit'), array('inline' => false));?>
                     <div class="fl to-diff" style="margin: 0 0.3%;">http://mrclass.in/</div>
                     <div class=" fl half-form-control">
                         <?php echo $this->Form->input('seo_url', array('type' => 'text', 'class' => 'form-control no_space', 'placeholder' => 'Your Business Name', 'div' => false, 'label' => false)); ?>
-                        <div class="cb"></div><span class="fl" id="min_price_error"></span>    
+                        <div class="cb"></div><span class="fl" id="min_price_error"></span>
                     </div>
                     <div class="cb"></div>
                 </div>
@@ -97,7 +97,7 @@ echo $this->Html->css(array('jquery.tagit'), array('inline' => false));?>
                     <div class="cb"></div>
                     <div class=" fl half-form-control">
                         <?php echo $this->Form->input('min_age_group', array('options' => range(0, 99), 'class' => 'form-control select2', 'data-placeholder' => 'Min Age', 'div' => false, 'label' => false)); ?>
-                        <div class="cb"></div><span class="fl" id="min_age_grp_error"></span>    
+                        <div class="cb"></div><span class="fl" id="min_age_grp_error"></span>
                     </div>
                     <div class="fl to-diff">to</div>
                     <div class=" fl half-form-control">
@@ -185,7 +185,7 @@ echo $this->Html->css(array('jquery.tagit'), array('inline' => false));?>
                     <label for="BusinessEducation">Education/Qualification*</label>
                     <?php echo $this->Form->input('education', array('type' => 'textarea', 'class' => 'form-control height-plus', 'placeholder' => 'Write about your Education/Qualification...', 'div' => false, 'label' => false)); ?>
                 </div>
-                
+
                 <div class="form-group">
                     <label for="BusinessExperience">Experience*</label>
                     <?php echo $this->Form->input('experience', array('type' => 'textarea', 'class' => 'form-control height-plus', 'placeholder' => 'Write about your Experience...', 'div' => false, 'label' => false)); ?>
@@ -281,8 +281,8 @@ echo $this->Html->css(array('jquery.tagit'), array('inline' => false));?>
             <div class="submit_reg_cnt">
                 <div class="fl">
                     <input type="checkbox" id="accept_terms" name="accept_terms"/>
-                    <span>Accept 
-                        <a target="_blank" href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'static_page', 'terms_and_conditions')) ?>">Terms & conditions</a> and 
+                    <span>Accept
+                        <a target="_blank" href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'static_page', 'terms_and_conditions')) ?>">Terms & conditions</a> and
                         <a target="_blank" href="<?php echo $this->Html->url(array('controller' => 'content', 'action' => 'static_page', 'privacy_policy')) ?>">Privacy Policy</a>
                     </span>
                     <div class="cb"></div>
@@ -429,6 +429,4 @@ echo $this->Html->css(array('jquery.tagit'), array('inline' => false));?>
             }
         });
     });
-</script> 
-
-
+</script>

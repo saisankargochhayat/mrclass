@@ -66,6 +66,59 @@ echo $this->Html->script(array('business_add'), array('inline' => false));
                           </div>
                           <div class="col-sm-10 fr" id="BusinessSubcategoryIdErr"></div>
                           </div><?php */ ?>
+
+                          <div class="hostel_business" style="display:none;">
+                              <div class="form-group">
+                                  <label for="foodingtype" class="col-sm-2 control-label"><?php echo __('Fooding'); ?>*</label>
+                                  <div class="col-sm-10">
+                                      <div class="radio fl">
+                                          <label><input name="data[Business][foodingtype]" id="food" value="food" checked="" type="radio"/>&nbsp;Food</label>
+                                      </div>
+                                      <div class="radio fl" style="margin-left:20px;">
+                                          <label><input name="data[Business][foodingtype]" id="nofood" value="nofood" type="radio"/>&nbsp;No Food</label>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="sharingtype" class="col-sm-2 control-label"><?php echo __('Number of sharing'); ?>*</label>
+                                  <div class="col-sm-10">
+                                      <div class="radio fl">
+                                          <label><input name="data[Business][sharingtype]" id="single" checked  value="single" type="radio"/>&nbsp;Single</label>
+                                      </div>
+                                      <div class="radio fl" style="margin-left:20px;">
+                                          <label><input name="data[Business][sharingtype]" id="double" value="double" type="radio"/>&nbsp;Double&nbsp;&nbsp;</label>
+                                      </div>
+                                      <div class="radio fl">
+                                          <label><input name="data[Business][sharingtype]" id="triple" value="triple" type="radio"/>&nbsp;Triple</label>
+                                      </div>
+                                      <div class="radio fl" style="margin-left:20px;">
+                                          <label><input name="data[Business][sharingtype]" id="more" value="more" type="radio"/>&nbsp;More</label>
+                                      </div>
+                                  </div>
+                              </div>
+                              <div class="form-group">
+                                  <label for="furnishstatus" class="col-sm-2 control-label"><?php echo __('Furnishing Status'); ?>*</label>
+                                  <div class="col-sm-10">
+                                      <div class="radio fl">
+                                          <label><input name="data[Business][furnishstatus]" id="furnished" value="furnished" checked type="radio"/>&nbsp;Furnished</label>
+                                      </div>
+                                      <div class="radio fl" style="margin-left:20px;">
+                                          <label><input name="data[Business][furnishstatus]" id="semifurnished" value="semifurnished" type="radio"/>&nbsp;Semi Furnished</label>
+                                      </div>
+                                      <div class="radio fl" style="margin-left:20px;">
+                                          <label><input name="data[Business][furnishstatus]" id="nonfurnished" value="nonfurnished" type="radio"/>&nbsp;Non Furnished</label>
+                                      </div>
+                                  </div>
+                              </div>
+                              <hr/>
+                          </div>
+
+
+
+
+
+
+
                         <div class="form-group">
                             <label for="BusinessKeyword" class="col-sm-2 control-label"><?php echo __('Keywords'); ?>
                                 <i class="fa fa-info-circle" rel="tooltip" title="You can enter multiple keywords. Press Enter to insert new keyword"></i></label>

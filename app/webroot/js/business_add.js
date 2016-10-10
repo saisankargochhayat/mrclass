@@ -21,7 +21,7 @@ Business = {
         if ($("#BusinessCityId").val() > 0) {
             this.get_localities($("#BusinessCityId").val());
         }
-        
+
         if($("input:radio[name='BusinessType']:checked").val() == 'group'){
             Business.toggle_private_validate('remove');
         }
@@ -42,12 +42,24 @@ Business = {
                 $(".private_business").removeClass('animated fadeInDown').hide();
             }
         });
+        $("#BusinessCategoryId").change(function () {
+            var hostelpresent=false;
+            $('#BusinessCategoryId :selected').each(function(i,selected){
+              if(selected.value == 47)
+                hostelpresent=true;
+            });
+            if (hostelpresent) {
+                $(".hostel_business").show().addClass('animated fadeInDown');
+            } else {
+                $(".hostel_business").removeClass('animated fadeInDown').hide();
+            }
+        });
         //, #BusinessEstablished
         //startDate: "01/01/1990",//endDate: "01/01/2020",
         $('#BusinessDob').datepicker({
             format: 'M dd, yyyy',dateFormat: 'M d, yy',maxDate: '0',autoclose:true,clearBtn:true,changeYear:true,changeMonth:true,yearRange: "-100:+0",startDate: "01/01/1901",endDate: new Date(),clearBtn: true
         });
-        
+
         /*toggle discount options*/
         $('#discount_allowed').is(':checked')?$('.discount_allowed_blk').show():$('.discount_allowed_blk').hide();
         $('#discount_allowed').click(function(){

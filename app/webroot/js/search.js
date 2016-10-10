@@ -171,7 +171,7 @@ Search = {
         $('#content_loader').show();
         var hash = typeof window.location.hash != 'undefined' ? window.location.hash.replace('#', '') : "";
         Search.set_hash();
-        console.log(Search);
+        //console.log(Search);
         var params = {
             view: Search.view,
             cid: Search.cid,
@@ -322,6 +322,15 @@ Search = {
                     case 'lc' :
                         Search.lc = $val[1];
                         break;
+                    case 'sharingtype' :
+                        Search.sharingtype = $val[1];
+                        break;
+                    case 'foodingtype' :
+                        Search.foodingtype = $val[1];
+                        break;
+                    case 'status' :
+                        Search.status = $val[1];
+                        break;
                     case 'place' :
                         if ($val[1] != '') {
                             def_selected = $val[1].split('-');
@@ -414,6 +423,7 @@ Search = {
         //console.log($("#ctype_private").is(':checked'))
         $("#ctype_private").is(':checked')?$("#filterblocks_place").show():$("#filterblocks_place").hide();
         $("#ctype_private").is(':checked')?"":Search.place = [];
+        //console.log(Search);
     },
     get_hash: function(item) {
         var hash = typeof window.location.hash != 'undefined' ? window.location.hash.replace('#', '') : "";
@@ -458,10 +468,10 @@ Search = {
         var m_arr = ['place', 'facilities', 'openon', 'ctype'];
 
         //console.log($.inArray('ctype=private',$hash));
-        console.log($hash);
+        //console.log($hash);
         $.each($hash, function(key, val) {
             $val = val.split('=');
-            console.log($val);
+            //console.log($val);
             if ($val[0] !== 'page' && $val[0] != '') {
                 if ($val[0] === opt) {
                     found = true;
