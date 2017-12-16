@@ -3,11 +3,11 @@ Online Education Institute Aggregator
 This is a completely implemented web platform to manage local educational institutes and create a structured presentation.
 
 ## Tech Stack - 
-Server version: Apache/2.2.15
-OS: Ubuntu 16.04
-PHP: 5.3.3 
-MySql: 5.5.48
-CakePHP: 2.7
+>Server version: Apache/2.2.15
+>OS: Ubuntu 16.04
+>PHP: 5.3.3 
+>MySql: 5.5.48
+>CakePHP: 2.7
 
 ## Page wise controller and views
 Edit profile: '/edit-profile', 'controller' = 'users', 'view' = 'edit'
