@@ -1,5 +1,6 @@
 # MrClass 
 Online Education Institute Aggregator 
+This is a completely implemented web platform to manage local educational institutes and create a structured presentation.
 
 ## Tech Stack - 
 Server version: Apache/2.2.15
