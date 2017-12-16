@@ -1,5 +1,4 @@
-# MrClass 
-Online Education Institute Aggregator 
+# MrClass - Online Education Institute Aggregator 
 This is a completely implemented web platform to manage local educational institutes and create a structured presentation.
 
 ## Tech Stack - 
