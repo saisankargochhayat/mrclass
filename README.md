@@ -1,56 +1,61 @@
-# CakePHP
+# MrClass 
+Online Education Institute Aggregator 
 
-[![Latest Stable Version](https://poser.pugx.org/cakephp/cakephp/v/stable.svg)](https://packagist.org/packages/cakephp/cakephp)
-[![License](https://poser.pugx.org/cakephp/cakephp/license.svg)](https://packagist.org/packages/cakephp/cakephp)
-[![Bake Status](https://secure.travis-ci.org/cakephp/cakephp.png?branch=master)](http://travis-ci.org/cakephp/cakephp)
-[![Code consistency](http://squizlabs.github.io/PHP_CodeSniffer/analysis/cakephp/cakephp/grade.svg)](http://squizlabs.github.io/PHP_CodeSniffer/analysis/cakephp/cakephp/)
+## Tech Stack - 
+Server version: Apache/2.2.15
+OS: Ubuntu 16.04
+PHP: 5.3.3 
+MySql: 5.5.48
+CakePHP: 2.7
 
-[![CakePHP](http://cakephp.org/img/cake-logo.png)](http://www.cakephp.org)
-
-CakePHP is a rapid development framework for PHP which uses commonly known design patterns like Active Record, Association Data Mapping, Front Controller and MVC.
-Our primary goal is to provide a structured framework that enables PHP users at all levels to rapidly develop robust web applications, without any loss to flexibility.
-
-
-## Some Handy Links
-
-[CakePHP](http://www.cakephp.org) - The rapid development PHP framework
-
-[CookBook](http://book.cakephp.org) - THE CakePHP user documentation; start learning here!
-
-[API](http://api.cakephp.org) - A reference to CakePHP's classes
-
-[Plugins](http://plugins.cakephp.org/) - A repository of extensions to the framework
-
-[The Bakery](http://bakery.cakephp.org) - Tips, tutorials and articles
-
-[Community Center](http://community.cakephp.org) - A source for everything community related
-
-[Training](http://training.cakephp.org) - Join a live session and get skilled with the framework
-
-[CakeFest](http://cakefest.org) - Don't miss our annual CakePHP conference
-
-[Cake Software Foundation](http://cakefoundation.org) - Promoting development related to CakePHP
-
-
-## Get Support!
-
-[#cakephp](http://webchat.freenode.net/?channels=#cakephp) on irc.freenode.net - Come chat with us, we have cake
-
-[Google Group](https://groups.google.com/group/cake-php) - Community mailing list and forum
-
-[GitHub Issues](https://github.com/cakephp/cakephp/issues) - Got issues? Please tell us!
-
-[Roadmaps](https://github.com/cakephp/cakephp/wiki#roadmaps) - Want to contribute? Get involved!
-
-
-## Contributing
-
-[CONTRIBUTING.md](CONTRIBUTING.md) - Quick pointers for contributing to the CakePHP project
-
-[CookBook "Contributing" Section (2.x)](http://book.cakephp.org/2.0/en/contributing.html) [(3.0)](http://book.cakephp.org/3.0/en/contributing.html) - Version-specific details about contributing to the project
-
-
-##Staging Branch Created.
-
-## New Branch Live.
+## Page wise controller and views
+Edit profile: '/edit-profile', 'controller' = 'users', 'view' = 'edit'
+Favorites: '/favorites', 'controller' = 'businesses', 'view' = 'favorites'
+Sign-up: '/signup', 'controller' = 'users', 'view' = 'sign_up'
+Dashboard: '/dashboard', 'controller' = 'users', 'view' = 'dashboard'
+Login: '/login', 'controller' = 'users', 'view' = 'login'
+Logout: '/logout', 'controller' = 'users', 'view' = 'logout'
+Activate: '/activate', 'controller' = 'users', 'view' = 'activate_account'
+Forgot password: '/forgot-password', 'controller' = 'users', 'view' = 'forgot_password'
+Reset password: '/reset-password/*', 'controller' = 'content', 'view' = 'reset_password', 'title' => 'Reset Password'
+Change Password: '/change-password', 'controller' = 'users', 'view' = 'change_password_user'
+Recently viewed classes: '/recently-viewed-classes', 'controller' = 'users', 'view' = 'recently_viewed_classes'
+Categories: '/categories/*', 'controller' = 'content', 'view' = 'categories'
+Category details: '/c-:id-:slug', 'controller' = 'content', 'view' = 'categories'
+Press: '/press', 'controller' = 'content', 'view' = 'press'
+Feedback: '/feedback', 'controller' = 'content', 'view' = 'feedback'
+Contact Us: '/contact-us', 'controller' = 'content', 'view' = 'contact_us'
+Looking for a tutor: '/looking-for-a-tutor', 'controller' = 'content', 'view' = 'looking_for_tutor'
+Refer a friend: '/refer-a-friend', 'controller' = 'content', 'view' = 'refer_friend'
+Search: '/search', 'controller' = 'content', 'view' = 'search'
+FAQs: '/faq', 'controller' = 'content', 'view' = 'faq'
+Career: '/career', 'controller' = 'content', 'view' = 'careers'
+About us: '/about-us', 'controller' = 'content', 'view' = 'static_page', 'about_us'
+Terms and Conditions: '/terms-and-conditions', 'controller' = 'content', 'view' = 'static_page', 'terms_and_conditions'
+Privacy policy: '/privacy-policy', 'controller' = 'content', 'view' = 'static_page', 'privacy_policy'
+Our team: '/our-team', 'controller' = 'content', 'view' = 'static_page', 'the_team'
+The platform: '/the-platform', 'controller' = 'content', 'view' = 'static_page', 'the_platform'
+Business dashboard: '/business-dashboard', 'controller' = 'businesses', 'view' = 'index'
+Create business: '/create-business/*', 'controller' = 'businesses', 'view' = 'add'
+Edit business: '/edit-business-:id-:slug', 'controller' = 'businesses', 'view' = 'edit'
+Business gallery images: '/business-pics-:id-:slug', 'controller' = 'business_galleries', 'view' = 'add'
+Business videos: '/business-videos-:id-:slug', 'controller' = 'business_galleries', 'view' = 'add_video_link'
+Business timings: '/business-timing-:id-:slug', 'controller' = 'business_timings', 'view' = 'add'
+Business FAQs: '/business-faq-:id-:slug', 'controller' = 'BusinessFaqs', 'view' = 'index'
+Business courses: '/business-courses-:id-:slug', 'controller' = 'Businesses', 'view' = 'courses'
+Business details: '/b-:id-:slug', 'controller' = 'businesses', 'view' = 'view'
+Call requests: '/call-requests', 'controller' = 'reports', 'view' = 'call_requests'
+My Bookings: '/my-bookings', 'controller' = 'reports', 'view' = 'my_bookings'
+Booking requests: '/booking-requests', 'controller' = 'reports', 'view' = 'bookings'
+My reviews: '/my-reviews', 'controller' = 'business_ratings', 'view' = 'my_reviews'
+Business reviews: '/business-reviews', 'controller' = 'business_ratings', 'view' = 'reviews'
+Google login: '/google_login', 'controller' = 'users', 'view' = 'google_login'
+Choose subscription: '/choose-subscription', 'controller' = 'subscriptions', 'view' = 'choose_subscription'
+Question banks: '/question-banks', 'controller' = 'QuestionCategories', 'view' = 'index'
+Question bank detail: '/question-papers/:id/:slag', 'controller' = "questions", 'view' = "index"
+Question bank download url: '/question-bank-download/:cid/:id/:cat/:file', 'controller' = "questions", 'view' = "question_bank_download"
+Create event: '/create-event', 'controller' = 'events', 'view' = 'add'
+Edit event: '/edit-event-:id', 'controller' = 'events', 'view' = 'edit'
+Event list: '/events-list', 'controller' = 'content', 'view' = 'event_list'
+Event details: '/e-:id-:slug', 'controller' = 'content', 'view' = 'event_view'
 
